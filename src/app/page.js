@@ -12,7 +12,7 @@ export default function Home() {
           priority={true}
         />
       </section>
-      <section className='services'></section>
+      <section className='services h-[100vh] w-[100vw] bg-red-400'></section>
     </>
   )
 }
