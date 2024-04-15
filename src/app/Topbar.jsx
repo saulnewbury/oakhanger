@@ -67,9 +67,9 @@ export default function Topbar() {
         {
           y: 0,
           stagger: 0.11,
-          duration: 0.8,
-          delay: 0.2,
-          ease: 'power1.inOut'
+          duration: 1,
+          delay: 0.1,
+          ease: 'power4.inOut'
         }
       )
       // Image transform
