@@ -40,7 +40,12 @@ export default function Topbar() {
 
     if (!isOpen) {
       // Text
-      gsap.to(linkRefs, { y: -100, stagger: 0.05, duration: 0.8 })
+      gsap.to(linkRefs, {
+        y: -100,
+        stagger: 0.05,
+        duration: 0.6,
+        ease: 'power2.out'
+      })
       // Image opacity
       gsap.to(featured.current, {
         opacity: 0,
@@ -66,10 +71,10 @@ export default function Topbar() {
         { y: 80 },
         {
           y: 0,
-          stagger: 0.11,
+          stagger: 0.12,
           duration: 1,
-          delay: 0.1,
-          ease: 'power4.inOut'
+          delay: 0.5,
+          ease: 'power2.out'
         }
       )
       // Image transform
@@ -78,7 +83,7 @@ export default function Topbar() {
         { xPercent: 30 },
         {
           xPercent: 0,
-          duration: 0.6,
+          duration: 0.7,
           delay: 0.2,
           ease: 'power1.inOut'
         }
@@ -89,7 +94,7 @@ export default function Topbar() {
         { opacity: 0 },
         {
           opacity: 1,
-          duration: 0.6,
+          duration: 0.4,
           delay: 0.2,
           ease: 'Power1.in'
         }
@@ -141,6 +146,7 @@ export default function Topbar() {
           </div>
 
           {/* Menu Button */}
+
           <div
             className={`menu-btn relative flex w-10 h-3 cursor-pointer ${
               +isOpen ? ' open' : ''
@@ -152,6 +158,7 @@ export default function Topbar() {
           </div>
         </div>
       </div>
+
       {/* Menu */}
       <div className='menu h-full w-full absolute top-0 left-0 z-30'>
         {/* Bg Panels */}
