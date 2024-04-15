@@ -26,6 +26,7 @@ export default function Topbar() {
   const link4 = useRef()
   const imageContainer = useRef()
   const featured = useRef()
+  const menu = useRef()
 
   const linkRefs = [link1.current, link2.current, link3.current, link4.current]
 
@@ -45,6 +46,7 @@ export default function Topbar() {
 
     if (!isOpen) {
       // Text
+      gsap.set(menu.current, { pointerEvents: 'none' })
       gsap.to(linkRefs, {
         y: 100,
         stagger: -0.2,
@@ -55,14 +57,14 @@ export default function Topbar() {
       gsap.to(featured.current, {
         opacity: 0,
         duration: 0.1,
-        delay: 1,
+        delay: 0.8,
         ease: 'power1.out'
       })
       // Image transform
       gsap.to(featured.current, {
         xPercent: 80,
         duration: 0.8,
-        delay: 1,
+        delay: 0.8,
         ease: 'power1.in'
       })
     }
@@ -73,6 +75,7 @@ export default function Topbar() {
 
     if (isOpen) {
       // Text
+      gsap.set(menu.current, { pointerEvents: 'auto' })
       gsap.fromTo(
         linkRefs,
         { y: 80 },
@@ -90,7 +93,7 @@ export default function Topbar() {
         { yPercent: 30 },
         {
           yPercent: 0,
-          duration: 1.5,
+          duration: 1.3,
           ease: 'power1.inOut'
         }
       )
@@ -100,7 +103,7 @@ export default function Topbar() {
         { scale: 0.8 },
         {
           scale: 1,
-          duration: 1.5,
+          duration: 1.3,
           ease: 'power1.inOut'
         }
       )
@@ -112,7 +115,7 @@ export default function Topbar() {
         {
           scale: 1,
           objectPosition: 'center',
-          duration: 1.5,
+          duration: 1.3,
           ease: 'power1.inOut'
         }
       )
@@ -188,7 +191,7 @@ export default function Topbar() {
       </div>
 
       {/* Menu */}
-      <div className='menu h-full w-full fixed top-0 left-0 z-30'>
+      <div ref={menu} className='menu h-full w-full fixed top-0 left-0 z-30'>
         {/* Bg Panels */}
         <div className='menu-bg flex flex-col h-full w-full absolute top-0 left-0'>
           <div className='basis-1/3 bg-white'></div>
