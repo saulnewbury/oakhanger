@@ -13,6 +13,7 @@ export default function Home() {
           priority={true}
         />
       </section>
+      {/* <section className='services h-[100vh] w-[100vw] bg-red-400'></section> */}
       <section className='services h-[100vh] w-[100vw] '>
         <div className='px-10'>
           <h2 className='text-5xl font-light my-40'>
