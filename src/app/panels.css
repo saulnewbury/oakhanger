@@ -1,0 +1,41 @@
+/* 
+** Panels (backgound) 
+*/
+
+.menu-bg div {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.menu-bg > div:first-child {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.5s cubic-bezier(0.15, 0.85, 0.45, 1) 1.4s;
+}
+
+.menu-bg > div:nth-child(2) {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.5s cubic-bezier(0.15, 0.85, 0.45, 1) 1.45s;
+}
+
+.menu-bg > div:last-child {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.5s cubic-bezier(0.15, 0.85, 0.45, 1) 1.5s;
+}
+
+.menu-bg.open > div:first-child {
+  transform: scaleX(1);
+  transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.45, 1) 0s;
+}
+
+.menu-bg.open > div:nth-child(2) {
+  transform: scaleX(1);
+  transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.45, 1) 0.05s;
+}
+
+.menu-bg.open > div:last-child {
+  transform: scaleX(1);
+  transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.45, 1) 0.1s;
+}

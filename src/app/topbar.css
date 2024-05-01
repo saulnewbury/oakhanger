@@ -11,19 +11,14 @@
 
 .menu-btn > div:first-child,
 .menu-btn > div:last-child {
-  background-color: white;
   transform: translate(0px, 0px);
-  transition:
-    transform 1s cubic-bezier(0.15, 0.85, 0.45, 1),
-    background-color 1s cubic-bezier(0.15, 0.85, 0.45, 1);
+  transition: transform 1s cubic-bezier(0.15, 0.85, 0.45, 1);
 }
 
 .menu-btn.open > div:first-child {
-  background-color: black;
   transform: translate(0px, 5.5px) rotate(30deg);
 }
 .menu-btn.open > div:last-child {
-  background-color: black;
   transform: translate(0px, -5.5px) rotate(-30deg);
 }
 
@@ -75,47 +70,6 @@
 .topbar:has(.open) + .menu .menu-bg > div:last-child {
   transform: scaleX(1);
   transition: transform 0.7s cubic-bezier(0.15, 0.85, 0.45, 1) 0.1s;
-}
-
-/* 
-** Logo 
-*/
-
-.logo {
-  filter: invert(1);
-  transition: filter 0.15s ease-out 1.4s;
-}
-
-.topbar:has(.open) .logo {
-  filter: invert(0);
-  transition: filter 0.3s ease-in 0.5s;
-}
-
-/* 
-** Main nav 
-*/
-
-.nav {
-  color: var(--pale-white);
-  transition: color 0.55s ease-in-out 1.6s;
-}
-
-.topbar .nav .active {
-  color: white;
-  transition: color 0.35s ease-in-out 1.6s;
-}
-
-.topbar:has(.open) .nav {
-  color: hsl(0 0% 0.69% / 0%);
-  transition: color 0.1s ease-in-out;
-}
-
-/* hide nav */
-.topbar:has(.open) .nav .link {
-  /* color: black; */
-  color: hsl(0 0% 0.69% / 0%);
-  pointer-events: none;
-  transition: color 0.1s ease-in-out;
 }
 
 /* Menu Nav (default) */
