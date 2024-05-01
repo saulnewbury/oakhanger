@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   console.log(ContextProvider)
   return (
     <html lang='en'>
-      <body className={poppins.className}>
+      <body className={`${poppins.className} bg-white`}>
         <ContextProvider>
           {children}
           <Menu />
