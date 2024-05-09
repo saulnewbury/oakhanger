@@ -56,8 +56,8 @@ export default function Menu() {
       })
       // Image transform
       gsap.to(featured.current, {
-        xPercent: 80,
-        duration: 0.8,
+        xPercent: 120,
+        duration: 1,
         delay: 1,
         ease: 'power1.in'
       })
