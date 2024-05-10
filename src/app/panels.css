@@ -2,7 +2,7 @@
 ** Panels (backgound) 
 */
 
-.menu-bg div {
+/* .menu-bg div {
   transform: scaleX(0);
   transform-origin: right;
 }
@@ -38,4 +38,4 @@
 .menu-bg.open > div:last-child {
   transform: scaleX(1);
   transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.45, 1) 0.1s;
-}
+} */
