@@ -70,7 +70,7 @@ export default function Home() {
       {/* collaborators */}
       <section>
         <div className='px-10'>
-          <h2 className='text-5xl font-light mt-20 mb-[100px]'>
+          <h2 className='text-5xl font-light my-32 mb-[100px]'>
             Collaboration
           </h2>
           <p className='text-right mb-20'>
@@ -89,8 +89,24 @@ export default function Home() {
               />
             ))}
           </div>
+          <div className='text-right italic mt-5 mr-2'>
+            <span>et al.</span>
+          </div>
         </div>
       </section>
+      {/* CTA */}
+      <section className='text-center pt-[100px]'>
+        <h3 className='text-5xl mb-[60px]'>
+          Have an idea you'd like to discuss?
+        </h3>
+        <div className='flex justify-center'>
+          <button className=' bg-[#D9D9D9] text-black py-[.8em] px-[2.2em] rounded-full flex items-center'>
+            <span>Get in touch</span> &nbsp; &nbsp;
+            <span className='text-[1.4em]'>&gt;</span>
+          </button>
+        </div>
+      </section>
+      <section className='h-[1000px]'></section>
     </>
   )
 }
