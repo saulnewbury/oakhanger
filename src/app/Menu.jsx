@@ -15,8 +15,6 @@ import { MenuContext } from './Context'
 
 import lamp from '../../public/images/nectar-lamp.jpg'
 
-// import '@/app/panels.css'
-
 let tl
 
 export default function Menu() {
@@ -74,23 +72,22 @@ export default function Menu() {
           },
           '<'
         )
-      // Image translate
     },
     { scope: container }
   )
 
   useGSAP(() => {
     // Hide
-    gsap.set('.featured', {
-      objectPosition: 'center'
-    })
-
     if (isOpen) {
+      gsap.set(container.current, { pointerEvents: 'none' })
+      gsap.set('body', { overflow: 'auto' })
       tl.reverse()
     }
 
     // Reveal
     if (!isOpen) {
+      gsap.set(container.current, { pointerEvents: 'auto' })
+      gsap.set('body', { overflow: 'hidden' })
       tl.play()
     }
   }, [isOpen])
@@ -143,7 +140,7 @@ export default function Menu() {
         {/* Image of lamp */}
         <div className='right max-w-sm aspect-[1260/1612] overflow-hidden'>
           <Image
-            className='featured object-cover object-[center_center]'
+            className='featured object-cover object-[center_center] hidden lg:block'
             src={lamp}
             alt='featured lamp with base that looks like necter'
           />

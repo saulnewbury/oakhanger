@@ -1,10 +1,32 @@
 import Image from 'next/image'
+
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
 import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
+
+import welding from '../../public/images/artisans/welding.jpg'
+import masonry from '../../public/images/artisans/masonry.jpg'
+import glass from '../../public/images/artisans/glass-blowing.jpg'
+import upholstery from '../../public/images/artisans/upholstery.jpg'
+import joinery from '../../public/images/artisans/joinery.jpg'
+import drop from '../../public/images/artisans/drop.jpg'
+import goldLeafing from '../../public/images/artisans/gold-leaf-cat.jpg'
+import design from '../../public/images/artisans/design.jpg'
+
+const images = [
+  welding,
+  masonry,
+  glass,
+  upholstery,
+  joinery,
+  drop,
+  goldLeafing,
+  design
+]
 
 export default function Home() {
   return (
     <>
+      {/* hero */}
       <section className='h-full'>
         <Image
           className='object-cover object-center h-full brightness-90'
@@ -13,10 +35,10 @@ export default function Home() {
           priority={true}
         />
       </section>
-      {/* <section className='services h-[100vh] w-[100vw] bg-red-400'></section> */}
-      <section className='services h-[100vh] w-[100vw] '>
+      {/* Services */}
+      <section className='services h-[max-content] w-[100vw] '>
         <div className='px-10'>
-          <h2 className='text-5xl font-light my-40'>
+          <h2 className='text-5xl font-light mt-20 mb-[100px]'>
             With you from concept to creation. . .
           </h2>
           <p className='text-right mb-20'>
@@ -42,6 +64,30 @@ export default function Home() {
               src={xie}
               alt='xie lamp'
             />
+          </div>
+        </div>
+      </section>
+      {/* collaborators */}
+      <section>
+        <div className='px-10'>
+          <h2 className='text-5xl font-light mt-20 mb-[100px]'>
+            Collaboration
+          </h2>
+          <p className='text-right mb-20'>
+            <span className='w-[350px] inline-block'>
+              With our team of collaborators we are able to complete products
+              require a variety of materials and artisan disciplines.
+            </span>
+          </p>
+          <div className='grid grid-cols-4 grid-rows-2 gap-[1vw] h-[max-content]'>
+            {images.map((img, idx) => (
+              <Image
+                key={idx}
+                className='object-cover object-center w-full h-full'
+                src={img}
+                alt='Living space showcasing high end furniture and lighting'
+              />
+            ))}
           </div>
         </div>
       </section>
