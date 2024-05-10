@@ -43,7 +43,7 @@ export default function Home() {
           </h2>
           <p className='text-right mb-20'>
             We turn <span className='italic'>your</span> designs into{' '}
-            <span>reality</span>
+            <span>reality.</span>
           </p>
         </div>
         <div className='flex justify-between'>
@@ -70,9 +70,7 @@ export default function Home() {
       {/* collaborators */}
       <section>
         <div className='px-10'>
-          <h2 className='text-5xl font-light my-32 mb-[100px]'>
-            Collaboration
-          </h2>
+          <h2 className='text-5xl font-light my-40'>Collaboration</h2>
           <p className='text-right mb-20'>
             <span className='w-[350px] inline-block'>
               With our team of collaborators we are able to complete products
@@ -95,9 +93,9 @@ export default function Home() {
         </div>
       </section>
       {/* CTA */}
-      <section className='text-center pt-[100px]'>
-        <h3 className='text-5xl mb-[60px]'>
-          Have an idea you'd like to discuss?
+      <section className='text-center mt-[10em]'>
+        <h3 className='text-4xl mb-[60px]'>
+          Have an idea you&apos;d like to discuss?
         </h3>
         <div className='flex justify-center'>
           <button className=' bg-[#D9D9D9] text-black py-[.8em] px-[2.2em] rounded-full flex items-center'>
