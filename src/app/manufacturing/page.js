@@ -80,7 +80,7 @@ export default function DesignAndRealisation() {
       </section>
       <section className='px-10 '>
         <h2 className='text-5xl mt-20 mb-40'>Design and realisation</h2>
-        <div className='flex justify-end'>
+        <div className='flex justify-end mb-20'>
           <div>
             <h4 className='mb-5 font-normal'>We make things we believe in:</h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
@@ -91,7 +91,7 @@ export default function DesignAndRealisation() {
             </span>
           </div>
         </div>
-        <div className='flex justify-end'>
+        <div className='flex justify-end mb-20'>
           <div>
             <h4 className='mb-5 font-normal'>At the cost of manufacture:</h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
