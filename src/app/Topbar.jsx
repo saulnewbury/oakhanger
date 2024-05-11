@@ -27,54 +27,41 @@ export default function Topbar() {
 
   return (
     <>
-      <div className='topbar px-10 py-8 flex justify-between bg-red fixed top-0 w-full z-40 mix-blend-difference'>
-        {/* Logo */}
-        <div>
-          <Image
-            src={logo}
-            alt='letters, O and M'
-            className='logo invert cursor-pointer'
-          />
-        </div>
-        <div className='basis-1/3 h-auto flex justify-between'>
-          {/* Nav */}
-          <div className='nav flex flex-col text-xs uppercase font-normal leading-7 text-[color:hsl(0,0%,22%)] -mt-2'>
-            <Link
-              className={`link ${pathname === '/' ? 'active' : ''}`}
-              href='/'
-            >
-              Home
-            </Link>
-            <Link
-              className={`link ${pathname === '#' ? 'active' : ''}`}
-              href='/about'
-            >
-              About
-            </Link>
-            <Link
-              className={`link ${pathname === '#' ? 'active' : ''}`}
-              href='#'
-            >
-              Our products
-            </Link>
-            <Link
-              className={`link ${pathname === '#' ? 'active' : ''}`}
-              href='#'
-            >
-              Contact
-            </Link>
-          </div>
-          {/* Menu Button */}
-          <div
-            className={`menu-btn relative flex w-10 h-3 cursor-pointer mix-blend-difference ${
-              isOpen ? '' : ' open'
-            }`}
-            onClick={handleClick}
-          >
-            <div className='top absolute h-px top-0 bg-white w-full mix-blend-difference'></div>
-            <div className='bottom absolute h-px bottom-0 bg-white w-full mix-blend-difference'></div>
-          </div>
-        </div>
+      {/* Logo */}
+
+      <Image
+        src={logo}
+        alt='letters, O and M'
+        className='logo invert cursor-pointer mix-blend-difference fixed top-8 left-10 z-[900]'
+      />
+
+      {/* Nav */}
+      <div className='nav flex flex-col text-xs uppercase font-normal leading-7 text-[color:hsl(0,0%,22%)] fixed top-8 -mt-2 right-[30vw] mix-blend-difference z-[900]'>
+        <Link className={`link ${pathname === '/' ? 'active' : ''}`} href='/'>
+          Home
+        </Link>
+        <Link
+          className={`link ${pathname === '#' ? 'active' : ''}`}
+          href='/about'
+        >
+          About
+        </Link>
+        <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
+          Our products
+        </Link>
+        <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
+          Contact
+        </Link>
+      </div>
+      {/* Menu Button */}
+      <div
+        className={`menu-btn fixed right-10 top-8 flex w-10 h-5 cursor-pointer mix-blend-difference z-[900] ${
+          isOpen ? '' : ' open'
+        }`}
+        onClick={handleClick}
+      >
+        <div className='top absolute h-px top-4 bg-white w-full mix-blend-difference'></div>
+        <div className='bottom absolute h-px bottom-4 bg-white w-full mix-blend-difference'></div>
       </div>
     </>
   )

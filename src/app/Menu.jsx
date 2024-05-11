@@ -18,7 +18,7 @@ import lamp from '../../public/images/nectar-lamp.jpg'
 let tl
 
 export default function Menu() {
-  const { isOpen } = useContext(MenuContext)
+  const { isOpen, toggleMenu } = useContext(MenuContext)
   const container = useRef()
 
   useGSAP(
@@ -94,6 +94,11 @@ export default function Menu() {
 
   const pathname = usePathname()
 
+  function handleClick() {
+    toggleMenu()
+    console.log('whatsup')
+  }
+
   return (
     <div ref={container} className='menu h-full w-full fixed top-0 left-0 z-30'>
       {/* Bg Panels */}
@@ -112,15 +117,25 @@ export default function Menu() {
           <Link
             className={`link  ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
             href='/'
+            onClick={handleClick}
           >
             <span className='inline-block'>Home</span>
           </Link>
 
           <Link
-            className={`link ${pathname === '#' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
-            href='#'
+            className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
+            href='/about'
+            onClick={handleClick}
           >
             <span className='inline-block'>About</span>
+          </Link>
+
+          <Link
+            className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
+            href='/manufacturing'
+            onClick={handleClick}
+          >
+            <span className='inline-block'>Manufacturing</span>
           </Link>
 
           <Link
