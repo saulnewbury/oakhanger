@@ -52,8 +52,6 @@ export default function DesignAndRealisation() {
       <section className='flex h-full items-center justify-center text-center'>
         <div>
           <h1 className='text-5xl mb-2'>Manufacturing</h1>
-
-          <p>Design and realisation</p>
         </div>
       </section>
       <section className='h-full w-full'>
