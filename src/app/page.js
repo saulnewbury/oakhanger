@@ -1,4 +1,8 @@
+'use client'
+
 import Image from 'next/image'
+
+import Cta from './lib/Cta'
 
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
 import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
@@ -92,19 +96,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* CTA */}
-      <section className='text-center mt-[10em]'>
-        <h3 className='text-4xl mb-[60px]'>
-          Have an idea you&apos;d like to discuss?
-        </h3>
-        <div className='flex justify-center'>
-          <button className=' bg-[#D9D9D9] text-black py-[.8em] px-[2.2em] rounded-full flex items-center'>
-            <span>Get in touch</span> &nbsp; &nbsp;
-            <span className='text-[1.4em]'>&gt;</span>
-          </button>
-        </div>
-      </section>
-      <section className='h-[1000px]'></section>
+      {/* CTA */}ß
+      <Cta />
     </>
   )
 }
