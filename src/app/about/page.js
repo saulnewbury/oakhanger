@@ -1,12 +1,119 @@
 'use client'
 
-import CTA from '@/app/lib/Cta.jsx'
+/**
+ * Using flag local storage to determine different behaviour
+ * for when the page is first-loaded or refreshed and when
+ * pages are navigated to virtually.
+ *
+ */
+
+import { useRef, useContext, useEffect, useState } from 'react'
+import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+import Image from 'next/image'
+
+import { MenuContext } from '../Context'
+
+import Cta from '@/app/lib/Cta.jsx'
+
+import arrow from '../../../public/down-arrow.svg'
 
 export default function About() {
+  const container = useRef()
+  const downArrow = useRef()
+
+  const { isOpen } = useContext(MenuContext)
+
+  // Reset local storage item to null when refreshing page
+  useEffect(() => {
+    window.addEventListener('beforeunload', () => {
+      localStorage.removeItem('aboutFirstLoadDone')
+    })
+
+    return () => {
+      window.removeEventListener('beforeunload', () => {
+        localStorage.removeItem('aboutFirstLoadDone')
+      })
+    }
+  }, [])
+
+  useGSAP(
+    () => {
+      if (localStorage.getItem('aboutFirstLoadDone') && isOpen) {
+        gsap.fromTo(
+          'span',
+          {
+            yPercent: 105
+          },
+          { yPercent: 0, delay: 1.8, stagger: 0.05 }
+        )
+        gsap.fromTo(
+          downArrow.current,
+          {
+            opacity: 0
+          },
+          { opacity: 1, duration: 2 }
+        )
+      }
+      if (localStorage.getItem('aboutFirstLoadDone') && !isOpen) {
+        console.log('yo')
+        gsap.fromTo(
+          'span',
+          {
+            yPercent: 0
+          },
+          { yPercent: -105, stagger: 0.05 }
+        )
+        gsap.fromTo(
+          downArrow.current,
+          {
+            opacity: 1
+          },
+          { opacity: 0, duration: 1 }
+        )
+      }
+
+      if (localStorage.getItem('aboutFirstLoadDone') === null) {
+        gsap.fromTo('span', { yPercent: 105 }, { yPercent: 0, stagger: 0.05 })
+        gsap.fromTo(
+          downArrow.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            onComplete: () => {
+              // Set aboutFirstLoadDone to true
+              localStorage.setItem('aboutFirstLoadDone', 1)
+            }
+          }
+        )
+      }
+    },
+    { scope: container, dependencies: [isOpen] }
+  )
+
   return (
     <>
-      <section className='flex h-full items-center justify-center'>
-        <h1 className='text-5xl'>About us</h1>
+      <section
+        ref={container}
+        className='flex h-full items-center justify-center'
+      >
+        <h1 className='text-5xl overflow-hidden leading-[.8] mb-[.65em]'>
+          <span className='inline-block'>A</span>
+          <span className='inline-block'>b</span>
+          <span className='inline-block'>o</span>
+          <span className='inline-block'>u</span>
+          <span className='inline-block'>t</span>&nbsp;
+          <span className='inline-block'>u</span>
+          <span className='inline-block'>s</span>
+        </h1>
+        <div
+          ref={downArrow}
+          className='downArrow absolute h-full w-full flex items-end justify-center'
+        >
+          <Image className='mb-[25vh]' src={arrow} alt='Down arrow' />
+        </div>
       </section>
       <section className='px-10 '>
         <div className='flex'>
@@ -69,9 +176,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <CTA />
+      <Cta />
     </>
   )
 }
-
-// static assets

@@ -36,7 +36,7 @@ export default function Topbar() {
       />
 
       {/* Nav */}
-      <div className='nav flex flex-col text-xs uppercase font-normal leading-7 text-[color:hsl(0,0%,22%)] fixed top-8 -mt-2 right-[30vw] mix-blend-difference z-[900]'>
+      <div className='nav flex flex-col text-xs uppercase font-normal leading-7 text-[color:hsl(0,0%,22%)] fixed top-8 -mt-2 right-[22vw] mix-blend-difference z-[900]'>
         <Link className={`link ${pathname === '/' ? 'active' : ''}`} href='/'>
           Home
         </Link>

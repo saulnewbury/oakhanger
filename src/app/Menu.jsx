@@ -96,7 +96,6 @@ export default function Menu() {
 
   function handleClick() {
     toggleMenu()
-    console.log('whatsup')
   }
 
   return (

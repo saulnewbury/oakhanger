@@ -3,19 +3,44 @@
 import { useRef, useEffect } from 'react'
 
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger, useGSAP)
+// gsap.registerPlugin(useGSAP)
 
 import CTA from '@/app/lib/Cta.jsx'
+
 export default function DesignAndRealisation() {
   const video = useRef()
   const playPauseBtn = useRef()
   const xQTo = useRef()
   const yQTo = useRef()
 
-  useEffect(() => {
+  useGSAP(() => {
     xQTo.current = gsap.quickTo(playPauseBtn.current, 'left', {
       duration: 0.01
     })
     yQTo.current = gsap.quickTo(playPauseBtn.current, 'top', { duration: 0.01 })
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: video.current,
+        start: 'top 20%',
+        onEnter: () => {
+          video.current.play()
+        },
+        onEnterBack: () => {
+          video.current.play()
+        },
+        onLeave: () => {
+          video.current.pause()
+        },
+        onLeaveBack: () => {
+          video.current.pause()
+        }
+      }
+    })
   }, [])
 
   function playPause() {
@@ -30,7 +55,6 @@ export default function DesignAndRealisation() {
     console.log(video.current.paused)
   }
 
-  let mouseInside
   function handleMouseMove(e) {
     xQTo.current(e.pageX)
     yQTo.current(e.pageY)
@@ -63,6 +87,7 @@ export default function DesignAndRealisation() {
           onMouseLeave={handleMouseLeave}
           width='320'
           height='240'
+          muted='muted'
           // height='100%'
           className='object-cover object-[center_center] h-full w-full'
           // autoPlay
