@@ -19,6 +19,7 @@ let muted = false
 
 export default function DesignAndRealisation() {
   const container = useRef()
+  const circle = useRef()
   const downArrow = useRef()
   const video = useRef()
   const playPauseBtn = useRef()
@@ -46,10 +47,11 @@ export default function DesignAndRealisation() {
     () => {
       if (!isReady && isOpen) {
         gsap.set('span', { yPercent: 105 })
+        gsap.set(circle.current, { scale: 0 })
       }
 
       if (isReady && isOpen) {
-        console.log('running')
+        gsap.fromTo(circle.current, { scale: 0 }, { scale: 1, duration: 2 })
         gsap.fromTo(
           'span',
           {
@@ -65,23 +67,6 @@ export default function DesignAndRealisation() {
           { opacity: 1, duration: 2 }
         )
       }
-      // if (isReady && !isOpen) {
-      //   console.log('yo')
-      //   gsap.fromTo(
-      //     'span',
-      //     {
-      //       yPercent: 0
-      //     },
-      //     { yPercent: -105, stagger: 0.05 }
-      //   )
-      //   gsap.fromTo(
-      //     downArrow.current,
-      //     {
-      //       opacity: 1
-      //     },
-      //     { opacity: 0, duration: 1 }
-      //   )
-      // }
     },
     { scope: container, dependencies: [isOpen, isReady] }
   )
@@ -105,12 +90,18 @@ export default function DesignAndRealisation() {
 
   return (
     <>
-      <section className='flex h-full items-center justify-center text-center'>
-        <section
-          ref={container}
-          className='flex h-full items-center justify-center'
+      <section className='h-full'>
+        <div
+          ref={circle}
+          className='h-[100vh] w-[100vw] absolute top-0 left-0 flex justify-center items-center'
         >
-          <h1 className='text-5xl overflow-hidden leading-[.9] mb-[.65em]'>
+          <div className='border-[1px] border-slate-500 rounded-full w-[30rem] h-[30rem]'></div>
+        </div>
+        <div
+          ref={container}
+          className='flex h-full items-center justify-center text-center'
+        >
+          <h1 className='text-6xl overflow-hidden leading-[.9]'>
             <span className='inline-block'>M</span>
             <span className='inline-block'>a</span>
             <span className='inline-block'>n</span>
@@ -125,11 +116,11 @@ export default function DesignAndRealisation() {
           </h1>
           <div
             ref={downArrow}
-            className='downArrow absolute h-full w-full flex items-end justify-center'
+            className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
           >
-            <Image className='mb-[25vh]' src={arrow} alt='Down arrow' />
+            <Image className='mb-[15vh]' src={arrow} alt='Down arrow' />
           </div>
-        </section>
+        </div>
       </section>
       <section className='h-full w-full'>
         <video

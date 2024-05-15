@@ -39,7 +39,7 @@ export default function Home() {
     () => {
       gsap.fromTo('h1 span', { opacity: 0 }, { opacity: 1, stagger: 0.06 })
     },
-    { scape: container }
+    { scope: container }
   )
   return (
     <>

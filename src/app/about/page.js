@@ -60,23 +60,6 @@ export default function About() {
           { opacity: 1, duration: 2 }
         )
       }
-      // if (isReady && !isOpen) {
-      //   console.log('yo')
-      //   gsap.fromTo(
-      //     'span',
-      //     {
-      //       yPercent: 0
-      //     },
-      //     { yPercent: -105, stagger: 0.05 }
-      //   )
-      //   gsap.fromTo(
-      //     downArrow.current,
-      //     {
-      //       opacity: 1
-      //     },
-      //     { opacity: 0, duration: 1 }
-      //   )
-      // }
     },
     { scope: container, dependencies: [isOpen, isReady] }
   )
@@ -98,7 +81,7 @@ export default function About() {
         </h1>
         <div
           ref={downArrow}
-          className='downArrow absolute h-full w-full flex items-end justify-center'
+          className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
         >
           <Image className='mb-[25vh]' src={arrow} alt='Down arrow' />
         </div>

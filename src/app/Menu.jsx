@@ -116,9 +116,9 @@ export default function Menu() {
       <div
         className={`menu-bg flex flex-col h-full w-full absolute top-0 left-0 ${isOpen ? '' : 'open'}`}
       >
-        <div className='panel basis-1/3 bg-slate-500 opacity-0'></div>
-        <div className='panel basis-1/3 bg-slate-500 opacity-0'></div>
-        <div className='panel basis-1/3 bg-slate-500 opacity-0'></div>
+        <div className='panel basis-1/3 bg-slate-200 opacity-0'></div>
+        <div className='panel basis-1/3 bg-slate-200 opacity-0'></div>
+        <div className='panel basis-1/3 bg-slate-200 opacity-0'></div>
       </div>
       {/* Nav links */}
       <div className='menu-nav h-full w-full px-10 py-8 absolute top-0 left-0 flex items-center justify-between'>
