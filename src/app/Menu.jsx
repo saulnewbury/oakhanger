@@ -18,25 +18,32 @@ import lamp from '../../public/images/nectar-lamp.jpg'
 let tl
 
 export default function Menu() {
-  const { isOpen, toggleMenu } = useContext(MenuContext)
+  const { isOpen, toggleMenu, ready } = useContext(MenuContext)
   const container = useRef()
 
   useGSAP(
     () => {
-      tl = gsap.timeline({ paused: true })
+      tl = gsap.timeline({
+        paused: true
+      })
 
-      gsap.set('.panel', { transformOrigin: 'right' })
+      gsap.set('.panel', { transformOrigin: 'right', opacity: 1 })
 
-      tl.fromTo(
-        '.panel',
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          stagger: 0.05,
-          duration: 1,
-          ease: 'power1.inOut'
+      tl.add(() => {
+        if (!tl.reversed()) {
+          ready(false)
         }
-      )
+      })
+        .fromTo(
+          '.panel',
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            stagger: 0.05,
+            duration: 1,
+            ease: 'power1.inOut'
+          }
+        )
         .fromTo(
           '.featured',
           { xPercent: 120 },
@@ -55,11 +62,15 @@ export default function Menu() {
           {
             opacity: 1,
             duration: 0.5,
-            // delay: 0.2,
             ease: 'Power1.in'
           },
           '<'
         )
+        .add(() => {
+          if (tl.reversed()) {
+            ready(true)
+          }
+        }, '<')
         .fromTo(
           '.link span',
           { y: 80 },
@@ -95,6 +106,7 @@ export default function Menu() {
   const pathname = usePathname()
 
   function handleClick() {
+    ready(false)
     toggleMenu()
   }
 
@@ -104,9 +116,9 @@ export default function Menu() {
       <div
         className={`menu-bg flex flex-col h-full w-full absolute top-0 left-0 ${isOpen ? '' : 'open'}`}
       >
-        <div className='panel basis-1/3 bg-white'></div>
-        <div className='panel basis-1/3 bg-white'></div>
-        <div className='panel basis-1/3 bg-white'></div>
+        <div className='panel basis-1/3 bg-slate-500 opacity-0'></div>
+        <div className='panel basis-1/3 bg-slate-500 opacity-0'></div>
+        <div className='panel basis-1/3 bg-slate-500 opacity-0'></div>
       </div>
       {/* Nav links */}
       <div className='menu-nav h-full w-full px-10 py-8 absolute top-0 left-0 flex items-center justify-between'>
@@ -114,7 +126,7 @@ export default function Menu() {
           className={`${isOpen ? 'open' : ''} flex flex-col uppercase font-normal text-black -mt-2 text-[4rem] leading-snug`}
         >
           <Link
-            className={`link  ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
+            className={`link  ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
             href='/'
             onClick={handleClick}
           >
@@ -122,7 +134,7 @@ export default function Menu() {
           </Link>
 
           <Link
-            className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
+            className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
             href='/about'
             onClick={handleClick}
           >
@@ -130,7 +142,7 @@ export default function Menu() {
           </Link>
 
           <Link
-            className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
+            className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
             href='/manufacturing'
             onClick={handleClick}
           >
@@ -138,7 +150,7 @@ export default function Menu() {
           </Link>
 
           <Link
-            className={`link ${pathname === '#' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.65em]`}
+            className={`link ${pathname === '#' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
             href='#'
           >
             <span className='inline-block'>Our products</span>

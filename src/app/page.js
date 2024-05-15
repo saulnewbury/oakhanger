@@ -1,5 +1,10 @@
 'use client'
 
+import { useRef } from 'react'
+
+import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
+
 import Image from 'next/image'
 
 import Cta from './lib/Cta'
@@ -28,27 +33,67 @@ const images = [
 ]
 
 export default function Home() {
+  const container = useRef()
+
+  useGSAP(
+    () => {
+      gsap.fromTo('h1 span', { opacity: 0 }, { opacity: 1, stagger: 0.06 })
+    },
+    { scape: container }
+  )
   return (
     <>
       {/* hero */}
-      <section className='h-full'>
+      <section ref={container} className='h-full relative'>
         <Image
-          className='object-cover object-center h-full brightness-90'
+          className='object-cover object-center h-full brightness-100'
           src={kamIdris}
           alt='Living space showcasing high end furniture and lighting'
           priority={true}
         />
+        <h1 className='absolute top-[55vh] text-white text-6xl ml-10 leading-[1.3em]'>
+          <span>W</span>
+          <span>e</span>&nbsp;
+          <span>t</span>
+          <span>u</span>
+          <span>r</span>
+          <span>n</span>&nbsp;
+          <span className='italic'>y</span>
+          <span className='italic'>o</span>
+          <span className='italic'>u</span>
+          <span className='italic'>r</span>
+          <br />
+          <span>i</span>
+          <span>d</span>
+          <span>e</span>
+          <span>a</span>
+          <span>s</span>&nbsp;
+          <span>i</span>
+          <span>n</span>
+          <span>t</span>
+          <span>o</span>&nbsp;
+          <span className='italic'>r</span>
+          <span className='italic'>e</span>
+          <span className='italic'>a</span>
+          <span className='italic'>l</span>
+          <span className='italic'>i</span>
+          <span className='italic'>t</span>
+          <span className='italic'>y</span>
+          {/* We turn <span className='italic'>your</span>
+          <br />
+          ideas into <span className='italic'>reality. . .</span> */}
+        </h1>
       </section>
       {/* Services */}
       <section className='services h-[max-content] w-[100vw] '>
         <div className='px-10'>
-          <h2 className='text-5xl font-light mt-20 mb-[100px]'>
-            With you from concept to creation. . .
+          <h2 className='text-5xl font-light mt-20 mb-[200px]'>
+            With you from concept to creation
           </h2>
-          <p className='text-right mb-20'>
+          {/* <p className='text-right mb-20'>
             We turn <span className='italic'>your</span> designs into{' '}
             <span>reality.</span>
-          </p>
+          </p> */}
         </div>
         <div className='flex justify-between'>
           <div className='text-right w-full flex justify-center items-center'>

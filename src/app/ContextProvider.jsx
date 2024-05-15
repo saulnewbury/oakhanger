@@ -6,11 +6,20 @@ import { MenuContext } from './Context'
 
 export const ContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState('false')
+  const [isReady, setIsReady] = useState(true)
+
+  // Toggle menu
   function toggleMenu() {
     setIsOpen(!isOpen)
   }
+
+  // Ready for start animation
+  function ready(bool) {
+    console.log('Working. Bool = ' + bool)
+    setIsReady(bool)
+  }
   return (
-    <MenuContext.Provider value={{ isOpen, toggleMenu }}>
+    <MenuContext.Provider value={{ isOpen, toggleMenu, isReady, ready }}>
       {children}
     </MenuContext.Provider>
   )

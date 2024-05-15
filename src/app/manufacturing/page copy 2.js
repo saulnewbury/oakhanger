@@ -25,37 +25,30 @@ export default function DesignAndRealisation() {
   const xQTo = useRef()
   const yQTo = useRef()
 
-  const { isOpen, ready, isReady } = useContext(MenuContext)
-
-  console.log('is ready? Answer = ' + isReady)
+  const { isOpen } = useContext(MenuContext)
 
   // Reset local storage item to null when refreshing page
   useEffect(() => {
     window.addEventListener('beforeunload', () => {
-      ready(true)
+      localStorage.removeItem('aboutFirstLoadDone')
     })
 
     return () => {
       window.removeEventListener('beforeunload', () => {
-        ready(true)
+        localStorage.removeItem('aboutFirstLoadDone')
       })
     }
   }, [])
 
   useGSAP(
     () => {
-      if (!isReady && isOpen) {
-        gsap.set('span', { yPercent: 105 })
-      }
-
-      if (isReady && isOpen) {
-        console.log('running')
+      if (localStorage.getItem('aboutFirstLoadDone') && isOpen) {
         gsap.fromTo(
           'span',
           {
             yPercent: 105
           },
-          { yPercent: 0, stagger: 0.05 }
+          { yPercent: 0, delay: 1.8, stagger: 0.05 }
         )
         gsap.fromTo(
           downArrow.current,
@@ -65,25 +58,41 @@ export default function DesignAndRealisation() {
           { opacity: 1, duration: 2 }
         )
       }
-      // if (isReady && !isOpen) {
-      //   console.log('yo')
-      //   gsap.fromTo(
-      //     'span',
-      //     {
-      //       yPercent: 0
-      //     },
-      //     { yPercent: -105, stagger: 0.05 }
-      //   )
-      //   gsap.fromTo(
-      //     downArrow.current,
-      //     {
-      //       opacity: 1
-      //     },
-      //     { opacity: 0, duration: 1 }
-      //   )
-      // }
+      if (localStorage.getItem('aboutFirstLoadDone') && !isOpen) {
+        console.log('yo')
+        gsap.fromTo(
+          'span',
+          {
+            yPercent: 0
+          },
+          { yPercent: -105, stagger: 0.05 }
+        )
+        gsap.fromTo(
+          downArrow.current,
+          {
+            opacity: 1
+          },
+          { opacity: 0, duration: 1 }
+        )
+      }
+
+      if (localStorage.getItem('aboutFirstLoadDone') === null) {
+        gsap.fromTo('span', { yPercent: 105 }, { yPercent: 0, stagger: 0.05 })
+        gsap.fromTo(
+          downArrow.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            onComplete: () => {
+              // Set aboutFirstLoadDone to true
+              localStorage.setItem('aboutFirstLoadDone', 1)
+            }
+          }
+        )
+      }
     },
-    { scope: container, dependencies: [isOpen, isReady] }
+    { scope: container, dependencies: [isOpen] }
   )
 
   useGSAP(() => {
@@ -240,3 +249,5 @@ export default function DesignAndRealisation() {
     gsap.fromTo(playPauseBtn.current, { scale: 1 }, { scale: 0, duration: 0.2 })
   }
 }
+
+// static assets
