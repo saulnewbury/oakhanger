@@ -1,11 +1,13 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useEffect, useContext } from 'react'
 
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 import Image from 'next/image'
+
+import { MenuContext } from './Context'
 
 import Cta from './lib/Cta'
 
@@ -35,11 +37,31 @@ const images = [
 export default function Home() {
   const container = useRef()
 
+  const { isOpen, ready, isReady } = useContext(MenuContext)
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', () => {
+      ready(true)
+    })
+
+    return () => {
+      window.removeEventListener('beforeunload', () => {
+        ready(true)
+      })
+    }
+  }, [])
+
   useGSAP(
     () => {
-      gsap.fromTo('h1 span', { opacity: 0 }, { opacity: 1, stagger: 0.06 })
+      if (!isReady && isOpen) {
+        gsap.set('h1 span', { opacity: 0 })
+      }
+
+      if (isReady && isOpen) {
+        gsap.fromTo('h1 span', { opacity: 0 }, { opacity: 1, stagger: 0.06 })
+      }
     },
-    { scope: container }
+    { scope: container, dependencies: [isOpen, isReady] }
   )
   return (
     <>
@@ -90,10 +112,6 @@ export default function Home() {
           <h2 className='text-5xl font-light mt-20 mb-[200px]'>
             With you from concept to creation
           </h2>
-          {/* <p className='text-right mb-20'>
-            We turn <span className='italic'>your</span> designs into{' '}
-            <span>reality.</span>
-          </p> */}
         </div>
         <div className='flex justify-between'>
           <div className='text-right w-full flex justify-center items-center'>

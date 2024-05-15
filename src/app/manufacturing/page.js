@@ -51,7 +51,7 @@ export default function DesignAndRealisation() {
       }
 
       if (isReady && isOpen) {
-        gsap.fromTo(circle.current, { scale: 0 }, { scale: 1, duration: 2 })
+        gsap.fromTo(circle.current, { scale: 0 }, { scale: 1, duration: 1.5 })
         gsap.fromTo(
           'span',
           {
@@ -95,7 +95,7 @@ export default function DesignAndRealisation() {
           ref={circle}
           className='h-[100vh] w-[100vw] absolute top-0 left-0 flex justify-center items-center'
         >
-          <div className='border-[1px] border-slate-500 rounded-full w-[30rem] h-[30rem]'></div>
+          <div className='border-[1px] border-neutral-400 rounded-full w-[30rem] h-[30rem]'></div>
         </div>
         <div
           ref={container}

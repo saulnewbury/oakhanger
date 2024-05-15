@@ -22,6 +22,7 @@ import arrow from '../../../public/down-arrow.svg'
 export default function About() {
   const container = useRef()
   const downArrow = useRef()
+  const circle = useRef()
 
   const { isOpen, isReady, ready } = useContext(MenuContext)
 
@@ -42,9 +43,16 @@ export default function About() {
     () => {
       if (!isReady && isOpen) {
         gsap.set('span', { yPercent: 105 })
+        gsap.set(circle.current, { scale: 0, opacity: 0 })
       }
 
       if (isReady && isOpen) {
+        gsap.fromTo(
+          circle.current,
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.5 }
+        )
+
         gsap.fromTo(
           'span',
           {
@@ -66,19 +74,30 @@ export default function About() {
 
   return (
     <>
-      <section
-        ref={container}
-        className='flex h-full items-center justify-center'
-      >
-        <h1 className='text-5xl overflow-hidden leading-[.9] mb-[.65em]'>
-          <span className='inline-block'>A</span>
-          <span className='inline-block'>b</span>
-          <span className='inline-block'>o</span>
-          <span className='inline-block'>u</span>
-          <span className='inline-block'>t</span>&nbsp;
-          <span className='inline-block'>u</span>
-          <span className='inline-block'>s</span>
-        </h1>
+      <section ref={container} className='h-full'>
+        <div
+          ref={circle}
+          className='h-[100vh] w-[100vw] absolute top-0 left-0 flex justify-center items-center'
+        >
+          <div className='border-[1px] border-neutral-400 rounded-full w-[30rem] h-[30rem]'></div>
+        </div>
+        <div className='flex h-full items-center justify-center text-center'>
+          <h1 className='text-6xl overflow-hidden leading-[.9]'>
+            <span className='inline-block'>A</span>
+            <span className='inline-block'>b</span>
+            <span className='inline-block'>o</span>
+            <span className='inline-block'>u</span>
+            <span className='inline-block'>t</span>&nbsp;
+            <span className='inline-block'>u</span>
+            <span className='inline-block'>s</span>
+          </h1>
+          <div
+            ref={downArrow}
+            className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
+          >
+            <Image className='mb-[15vh]' src={arrow} alt='Down arrow' />
+          </div>
+        </div>
         <div
           ref={downArrow}
           className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
