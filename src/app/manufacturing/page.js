@@ -206,20 +206,22 @@ export default function DesignAndRealisation() {
   )
 
   function playPause() {
-    video.current.muted = false
-
-    muted = !muted
+    if (video.current.muted) {
+      gsap.set(video.current, { volume: 0 })
+      video.current.muted = false
+      gsap.to(video.current, { volume: 1, duration: 1 })
+      playPauseBtn.current.innerText = 'Mute'
+      return
+    }
 
     if (muted) {
       playPauseBtn.current.innerText = 'Mute'
-      gsap.to(video.current, { volume: 1 })
+      gsap.to(video.current, { volume: 1, duration: 1 })
     } else {
       playPauseBtn.current.innerText = 'Play'
-      gsap.to(video.current, { volume: 0 })
+      gsap.to(video.current, { volume: 0, duration: 1 })
     }
-
-    // video.current.muted = true
-    console.log(video.current.paused)
+    muted = !muted
   }
 
   function handleMouseMove(e) {
