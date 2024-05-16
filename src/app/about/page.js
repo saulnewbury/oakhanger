@@ -44,6 +44,7 @@ export default function About() {
       if (!isReady && isOpen) {
         gsap.set('span', { yPercent: 105 })
         gsap.set(circle.current, { scale: 0, opacity: 0 })
+        gsap.set(downArrow.current, { opacity: 0 })
       }
 
       if (isReady && isOpen) {
