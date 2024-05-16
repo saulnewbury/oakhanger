@@ -50,7 +50,7 @@ export default function About() {
         gsap.fromTo(
           circle.current,
           { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 1.5 }
+          { scale: 1, opacity: 1, duration: 1.5, ease: 'back.out(.5)' }
         )
 
         gsap.fromTo(
@@ -98,12 +98,12 @@ export default function About() {
             <Image className='mb-[15vh]' src={arrow} alt='Down arrow' />
           </div>
         </div>
-        <div
+        {/* <div
           ref={downArrow}
           className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
         >
           <Image className='mb-[25vh]' src={arrow} alt='Down arrow' />
-        </div>
+        </div> */}
       </section>
       <section className='px-10 '>
         <div className='flex'>

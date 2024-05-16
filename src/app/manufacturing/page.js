@@ -47,11 +47,16 @@ export default function DesignAndRealisation() {
     () => {
       if (!isReady && isOpen) {
         gsap.set('span', { yPercent: 105 })
-        gsap.set(circle.current, { scale: 0 })
+
+        gsap.set(circle.current, { scale: 0, opacity: 0 })
       }
 
       if (isReady && isOpen) {
-        gsap.fromTo(circle.current, { scale: 0 }, { scale: 1, duration: 1.5 })
+        gsap.fromTo(
+          circle.current,
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.5, ease: 'back.out(.5)' }
+        )
         gsap.fromTo(
           'span',
           {
