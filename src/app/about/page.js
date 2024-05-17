@@ -16,6 +16,7 @@ import Image from 'next/image'
 import { MenuContext } from '../Context'
 
 import Cta from '@/app/lib/Cta.jsx'
+import Header from '@/app/lib/Header.jsx'
 
 import arrow from '../../../public/down-arrow.svg'
 
@@ -75,7 +76,8 @@ export default function About() {
 
   return (
     <>
-      <section ref={container} className='h-full'>
+      <Header title='About us' />
+      {/* <section ref={container} className='h-full'>
         <div
           ref={circle}
           className='h-[100vh] w-[100vw] absolute top-0 left-0 flex justify-center items-center'
@@ -96,16 +98,14 @@ export default function About() {
             ref={downArrow}
             className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
           >
-            <Image className='mb-[15vh]' src={arrow} alt='Down arrow' />
+            <Image
+              className='mb-[10vh] border-neutral-400'
+              src={arrow}
+              alt='Down arrow'
+            />
           </div>
         </div>
-        {/* <div
-          ref={downArrow}
-          className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
-        >
-          <Image className='mb-[25vh]' src={arrow} alt='Down arrow' />
-        </div> */}
-      </section>
+      </section> */}
       <section className='px-10 '>
         <div className='flex'>
           <div>
@@ -115,12 +115,14 @@ export default function About() {
             </span>
           </div>
         </div>
-        <h2 className='text-5xl my-80 text-center'>
-          We make things we believe in. . .
-        </h2>
+        <div className='flex h-[100vh] justify-center items-center'>
+          <h2 className='text-5xl text-center'>
+            We make things we believe in. . .
+          </h2>
+        </div>
         <div className='flex justify-end mb-20'>
           <div>
-            <h4 className='mb-5 font-normal'>Where it all began:</h4>
+            <h4 className='mb-5 font-normal'>Where it all began</h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
               We started out as apprentices at Tom Harral Metalsmiths; a small
               company with a 20 year history of forging and fabricating
@@ -134,9 +136,7 @@ export default function About() {
         </div>
         <div className='flex justify-end mb-20'>
           <div>
-            <h4 className='mb-5 font-normal'>
-              With you from beginning to end :
-            </h4>
+            <h4 className='mb-5 font-normal'>With you from beginning to end</h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
               Our primary purpose was to preserve the way of life of artisans
               whilst offering a service that was neither exploitative,
@@ -150,7 +150,7 @@ export default function About() {
         </div>
         <div className='flex justify-end'>
           <div>
-            <h4 className='mb-5 font-normal'>Development:</h4>
+            <h4 className='mb-5 font-normal'>Our development</h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
               To achieve these aims we had to acquire additional skills and
               knowledge to communicate ideas and take advantage of modern

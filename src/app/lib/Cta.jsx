@@ -1,3 +1,7 @@
+'use client'
+
+import rightArrow from '../../../public/right-arrow.svg'
+
 export default function Cta() {
   return (
     <section className='text-center mt-[10em] pb-[10em]'>

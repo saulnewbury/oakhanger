@@ -101,9 +101,6 @@ export default function Home() {
           <span className='italic'>i</span>
           <span className='italic'>t</span>
           <span className='italic'>y</span>
-          {/* We turn <span className='italic'>your</span>
-          <br />
-          ideas into <span className='italic'>reality. . .</span> */}
         </h1>
       </section>
       {/* Services */}

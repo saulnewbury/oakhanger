@@ -1,80 +1,24 @@
 'use client'
 
-import { useRef, useContext, useEffect } from 'react'
-import Image from 'next/image'
+import { useRef } from 'react'
 
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-import { MenuContext } from '../Context'
-
 import CTA from '@/app/lib/Cta.jsx'
 
-import arrow from '../../../public/down-arrow.svg'
+import Hero from '../lib/Header'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 let muted = false
 
 export default function DesignAndRealisation() {
-  const container = useRef()
-  const circle = useRef()
-  const downArrow = useRef()
   const video = useRef()
   const playPauseBtn = useRef()
   const xQTo = useRef()
   const yQTo = useRef()
-
-  const { isOpen, ready, isReady } = useContext(MenuContext)
-
-  console.log('is ready? Answer = ' + isReady)
-
-  // Reset local storage item to null when refreshing page
-  useEffect(() => {
-    window.addEventListener('beforeunload', () => {
-      ready(true)
-    })
-
-    return () => {
-      window.removeEventListener('beforeunload', () => {
-        ready(true)
-      })
-    }
-  }, [])
-
-  useGSAP(
-    () => {
-      if (!isReady && isOpen) {
-        gsap.set('span', { yPercent: 105 })
-        gsap.set(circle.current, { scale: 0, opacity: 0 })
-        gsap.set(downArrow.current, { opacity: 0 })
-      }
-
-      if (isReady && isOpen) {
-        gsap.fromTo(
-          circle.current,
-          { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 1.5, ease: 'back.out(.5)' }
-        )
-        gsap.fromTo(
-          'span',
-          {
-            yPercent: 105
-          },
-          { yPercent: 0, stagger: 0.05 }
-        )
-        gsap.fromTo(
-          downArrow.current,
-          {
-            opacity: 0
-          },
-          { opacity: 1, duration: 2 }
-        )
-      }
-    },
-    { scope: container, dependencies: [isOpen, isReady] }
-  )
 
   useGSAP(() => {
     xQTo.current = gsap.quickTo(playPauseBtn.current, 'left', {
@@ -95,38 +39,7 @@ export default function DesignAndRealisation() {
 
   return (
     <>
-      <section className='h-full'>
-        <div
-          ref={circle}
-          className='h-[100vh] w-[100vw] absolute top-0 left-0 flex justify-center items-center'
-        >
-          <div className='border-[1px] border-neutral-400 rounded-full w-[30rem] h-[30rem]'></div>
-        </div>
-        <div
-          ref={container}
-          className='flex h-full items-center justify-center text-center'
-        >
-          <h1 className='text-6xl overflow-hidden leading-[.9]'>
-            <span className='inline-block'>M</span>
-            <span className='inline-block'>a</span>
-            <span className='inline-block'>n</span>
-            <span className='inline-block'>u</span>
-            <span className='inline-block'>f</span>
-            <span className='inline-block'>a</span>
-            <span className='inline-block'>c</span>
-            <span className='inline-block'>t</span>
-            <span className='inline-block'>u</span>
-            <span className='inline-block'>r</span>
-            <span className='inline-block'>e</span>
-          </h1>
-          <div
-            ref={downArrow}
-            className='downArrow absolute h-full w-full flex items-end justify-center pointer-events-none'
-          >
-            <Image className='mb-[15vh]' src={arrow} alt='Down arrow' />
-          </div>
-        </div>
-      </section>
+      <Hero title='Manufacture' />
       <section className='h-full w-full'>
         <video
           ref={video}
@@ -165,7 +78,7 @@ export default function DesignAndRealisation() {
         </div>
         <div className='flex justify-end mb-20'>
           <div>
-            <h4 className='mb-5 font-normal'>At the cost of manufacture:</h4>
+            <h4 className='mb-5 font-normal'>At the cost of manufacture</h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
               For one-off designs we can take your concept into our own product
               line, allowing us to realise your idea, at cost of manufacturing.
@@ -181,9 +94,7 @@ export default function DesignAndRealisation() {
         </p>
         <div className='flex justify-end'>
           <div>
-            <h4 className='mb-5 font-normal'>
-              With you from beginning to end :
-            </h4>
+            <h4 className='mb-5 font-normal'>With you from beginning to end</h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
               We work closely with our customers, making sure we are on the same
               page at every step. Our artisans only clear items that reflect the
