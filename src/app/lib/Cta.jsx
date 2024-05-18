@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import rightArrow from '../../../public/right-arrow.svg'
 
 export default function Cta() {
@@ -11,7 +12,10 @@ export default function Cta() {
       <div className='flex justify-center'>
         <button className=' bg-[#D9D9D9] text-black py-[.8em] px-[2.2em] rounded-full flex items-center'>
           <span>Get in touch</span> &nbsp; &nbsp;
-          <span className='text-[1.4em]'>&gt;</span>
+          {/* <span className='text-[1.4em]'>&gt;</span> */}
+          <span className='text-[1.4em]'>
+            <Image src={rightArrow} alt='' />
+          </span>
         </button>
       </div>
     </section>

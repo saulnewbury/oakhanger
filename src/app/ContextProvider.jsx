@@ -15,7 +15,6 @@ export const ContextProvider = ({ children }) => {
 
   // Ready for start animation
   function ready(bool) {
-    console.log('Working. Bool = ' + bool)
     setIsReady(bool)
   }
   return (

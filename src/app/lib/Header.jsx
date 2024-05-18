@@ -1,5 +1,11 @@
 'use client'
 
+/**
+ * Using flag local storage to determine different behaviour
+ * for when the page is first-loaded or refreshed and when
+ * pages are navigated to virtually.
+ */
+
 import { useRef, useContext, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -29,8 +35,8 @@ export default function Hero({ title }) {
     }
   }, [])
 
-  function createHtml(l) {
-    return !/\s/.test(l) ? { __html: l } : { __html: '&nbsp;' }
+  function createHtml(c) {
+    return !/\s/.test(c) ? { __html: c } : { __html: '&nbsp;' }
   }
 
   useGSAP(
@@ -77,11 +83,11 @@ export default function Hero({ title }) {
       </div>
       <div className='flex h-full items-center justify-center text-center'>
         <h1 className='text-6xl overflow-hidden leading-[.9]'>
-          {title.split('').map((l, i) => (
+          {title.split('').map((c, i) => (
             <span
               key={i}
               className='inline-block'
-              dangerouslySetInnerHTML={createHtml(l)}
+              dangerouslySetInnerHTML={createHtml(c)}
             ></span>
           ))}
         </h1>
