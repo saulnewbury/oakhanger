@@ -68,7 +68,7 @@ export default function About() {
   return (
     <>
       <Header title='About us' />
-      <section className='px-10 pb-[100px]'>
+      <section className='px-10'>
         <div className='flex'>
           <Reveal text={about} />
         </div>

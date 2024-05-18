@@ -1,5 +1,6 @@
 import { Poppins } from 'next/font/google'
 import { ContextProvider } from './ContextProvider'
+import { ReactLenis, useLenis } from './lib/lenis'
 import './globals.css'
 
 import Topbar from './Topbar'
@@ -12,20 +13,21 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'Home',
-  description: 'Woof woof woof'
+  description: 'Furniture makers'
 }
 
 export default function RootLayout({ children }) {
-  console.log(ContextProvider)
   return (
     <html lang='en'>
-      <body className={`${poppins.className} bg-white`}>
-        <ContextProvider>
-          {children}
-          <Menu />
-          <Topbar />
-        </ContextProvider>
-      </body>
+      <ReactLenis root>
+        <body className={`${poppins.className} bg-white`}>
+          <ContextProvider>
+            {children}
+            <Menu />
+            <Topbar />
+          </ContextProvider>
+        </body>
+      </ReactLenis>
     </html>
   )
 }
