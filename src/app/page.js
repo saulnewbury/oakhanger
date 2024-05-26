@@ -10,6 +10,7 @@ import Image from 'next/image'
 import { MenuContext } from './Context'
 
 import Cta from './lib/Cta'
+import TextRevealOpacity from './lib/TextRevealOpacity'
 
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
 import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
@@ -106,8 +107,11 @@ export default function Home() {
       {/* Services */}
       <section className='services h-[max-content] w-[100vw] '>
         <div className='px-10'>
-          <h2 className='text-5xl font-light mt-20 mb-[200px]'>
-            With you from concept to creation
+          <h2 className='text-5xl font-light mt-[10rem] mb-[200px] text-center'>
+            <TextRevealOpacity
+              justification='center'
+              text='With you from concept to creation'
+            />
           </h2>
         </div>
         <div className='flex justify-between'>
@@ -156,7 +160,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* CTA */}ß
+      {/* CTA */}
       <Cta />
     </>
   )

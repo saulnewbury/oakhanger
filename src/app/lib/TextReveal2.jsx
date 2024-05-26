@@ -7,8 +7,21 @@ import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-export default function Reveal({ text }) {
+export default function TextReveal2({ text }) {
   const container = useRef()
+
+  // font size and container width.
+  // How many characters of a given font size can fit into the width.
+  // calculate  the width on every character?
+
+  const arr = []
+
+  function calcCharsPerLine(width) {
+    for (let i = 0; i < text.length; i++) {
+      console.log(text[i])
+    }
+  }
+  calcCharsPerLine(200)
 
   useGSAP(
     () => {
@@ -22,7 +35,7 @@ export default function Reveal({ text }) {
           },
           yPercent: 0,
           stagger: 0.12,
-          duration: 1
+          duration: 0.5
         }
       )
     },
@@ -31,16 +44,11 @@ export default function Reveal({ text }) {
 
   return (
     <div ref={container}>
-      {text.map((line, i) => (
+      {/* {text.map((line, i) => (
         <p key={i} className='my-0 overflow-hidden'>
-          <span className='text-[24px] max-w-[479px] inline-block opacity-0'>
-            {line}
-            {/* {line.map((char, i) => (
-              <span key={i} className='char'>{char}</span>
-            ))} */}
-          </span>
+          <span className='max-w-[479px] inline-block opacity-0'>{line}</span>
         </p>
-      ))}
+      ))} */}
     </div>
   )
 }

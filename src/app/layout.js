@@ -1,6 +1,6 @@
 import { Poppins } from 'next/font/google'
 import { ContextProvider } from './ContextProvider'
-import { ReactLenis, useLenis } from './lib/lenis'
+import SmoothScroll from './lib/SmoothScroll'
 import './globals.css'
 
 import Topbar from './Topbar'
@@ -19,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <ReactLenis root>
+      <SmoothScroll>
         <body className={`${poppins.className} bg-white`}>
           <ContextProvider>
             {children}
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
             <Topbar />
           </ContextProvider>
         </body>
-      </ReactLenis>
+      </SmoothScroll>
     </html>
   )
 }

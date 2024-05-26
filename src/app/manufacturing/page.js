@@ -7,6 +7,8 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import CTA from '@/app/lib/Cta.jsx'
+import TextRevealOpacity from '../lib/TextRevealOpacity'
+import TextReveal from '../lib/TextReveal'
 
 import Hero from '../lib/Header'
 
@@ -64,10 +66,21 @@ export default function DesignAndRealisation() {
         </div>
       </section>
       <section className='px-10 '>
-        <h2 className='text-5xl mt-20 mb-40'>Design and realisation</h2>
+        {/* <h2 className='text-5xl mt-20 mb-40'>Design and realisation</h2> */}
+        <h2 className='py-[4rem] text-5xl'>
+          <TextRevealOpacity
+            justification='left'
+            text='Design and realisation'
+          />
+        </h2>
         <div className='flex justify-end mb-20'>
           <div>
-            <h4 className='mb-5 font-normal'>We make things we believe in:</h4>
+            <h4 className='mb-5 font-normal text-base'>
+              <TextReveal
+                // justification='left'
+                text={['We make things we believe in']}
+              />
+            </h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
               From choosing materials and finishes to the design of
               manufacturing strategies, we find the solutions needed for turning
@@ -78,7 +91,12 @@ export default function DesignAndRealisation() {
         </div>
         <div className='flex justify-end mb-20'>
           <div>
-            <h4 className='mb-5 font-normal'>At the cost of manufacture</h4>
+            <h4 className='mb-5 font-normal text-base'>
+              <TextRevealOpacity
+                justification='left'
+                text='At the cost of manufacture'
+              />
+            </h4>
             <span className='text-[24px] max-w-[479px] inline-block'>
               For one-off designs we can take your concept into our own product
               line, allowing us to realise your idea, at cost of manufacturing.

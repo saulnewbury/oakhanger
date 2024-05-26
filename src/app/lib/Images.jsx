@@ -15,26 +15,12 @@ import tableRings from '@/app/lib/images/table-rings-coated.webp'
 import lamp from '@/app/lib/images/lamp.webp'
 import planter from '@/app/lib/images/planter.webp'
 
-export default function Images({ title }) {
+export default function Images() {
   const container = useRef()
 
   useGSAP(
     () => {
-      // Animate text
-      gsap.fromTo(
-        '.chars',
-        { opacity: 0 },
-        {
-          scrollTrigger: {
-            trigger: '.chars',
-            start: 'top 70%'
-          },
-          opacity: 1,
-          stagger: 0.03
-        }
-      )
-      // Animate images
-      gsap.set('.image-container', { xPercent: 10 })
+      gsap.set('.image-container', { xPercent: 0 })
       gsap.set('.image', { opacity: 0 })
 
       gsap.to('.image-container', {
@@ -44,15 +30,14 @@ export default function Images({ title }) {
           scrub: 0.1,
           marker: true
         },
-        xPercent: -10
-        // ease: 'power1.inOut'
+        xPercent: -20
       })
 
       gsap.to('.image', {
         scrollTrigger: {
           trigger: '.image-container',
           start: 'top 110%',
-          end: 'top 0%',
+          end: 'top 90%',
           scrub: 0.5,
           marker: true
         },
@@ -64,24 +49,16 @@ export default function Images({ title }) {
     { scope: container }
   )
 
-  function createHtml(char) {
-    return !/\s/.test(char) ? { __html: char } : { __html: '&nbsp;' }
-  }
-
   return (
-    <section ref={container}>
-      <h2 className='text-5xl text-center mt-[30vh] mb-[5rem] px-10'>
-        {title.split('').map((char, i) => (
-          <span
-            className='chars opacity-0'
-            key={i}
-            dangerouslySetInnerHTML={createHtml(char)}
-          ></span>
-        ))}
-      </h2>
+    <div ref={container}>
       <div className='overflow-hidden w-full h-[max-content] px-10'>
         <div className='pb-[5rem]'>
           <div className='image-container flex items-center gap-2'>
+            <Image
+              src={planter}
+              alt='Planter'
+              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+            />
             <Image
               src={bridge}
               alt='Garden bridge'
@@ -115,6 +92,6 @@ export default function Images({ title }) {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
