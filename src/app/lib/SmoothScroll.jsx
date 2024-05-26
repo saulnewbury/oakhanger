@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useRef, useEffect } from 'react'
-import { ReactLenis } from './lenis'
+// import { ReactLenis } from './lenis'
+import { ReactLenis } from 'lenis/react'
 import { gsap } from 'gsap'
 
 export default function SmoothScroll({ children }) {
