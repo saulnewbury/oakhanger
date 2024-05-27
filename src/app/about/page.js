@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import Images from '../lib/Images'
+import HorizontalImages from '../lib/HorizontalImages'
 
 import Cta from '@/app/lib/Cta.jsx'
 import Header from '@/app/lib/Header.jsx'
@@ -36,7 +36,7 @@ export default function About() {
             text='We make things we believe in. . .'
           />
         </h2>
-        <Images />
+        <HorizontalImages />
       </section>
       <section className='px-10'>
         <div className='flex justify-end mb-20'>

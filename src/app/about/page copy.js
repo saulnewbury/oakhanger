@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import Images from '../lib/Images'
+import Images from '../lib/HorizontalImages'
 
 import Cta from '@/app/lib/Cta.jsx'
 import Header from '@/app/lib/Header.jsx'

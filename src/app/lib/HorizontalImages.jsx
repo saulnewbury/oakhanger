@@ -15,7 +15,7 @@ import tableRings from '@/app/lib/images/table-rings-coated.webp'
 import lamp from '@/app/lib/images/lamp.webp'
 import planter from '@/app/lib/images/planter.webp'
 
-export default function Images() {
+export default function HorizontalImages() {
   const container = useRef()
 
   useGSAP(
@@ -30,7 +30,7 @@ export default function Images() {
           scrub: 0.1,
           marker: true
         },
-        xPercent: -20
+        xPercent: -40
       })
 
       gsap.to('.image', {
@@ -57,37 +57,37 @@ export default function Images() {
             <Image
               src={planter}
               alt='Planter'
-              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+              className='image h-[28vw] w-[21vw] object-cover opacity-0'
             />
             <Image
               src={bridge}
               alt='Garden bridge'
-              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+              className='image h-[28vw] w-[21vw] object-cover opacity-0'
             />
             <Image
               src={flowers}
               alt='Flower sculpture'
-              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+              className='image h-[28vw] w-[21vw] object-cover opacity-0'
             />
             <Image
               src={rings}
               alt='Metal rings'
-              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+              className='image h-[28vw] w-[21vw] object-cover opacity-0'
             />
             <Image
               src={tableRings}
               alt='Table with rings for legs'
-              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+              className='image h-[28vw] w-[21vw] object-cover opacity-0'
             />
             <Image
               src={lamp}
               alt='Lamp which looks like a rose'
-              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+              className='image h-[28vw] w-[21vw] object-cover opacity-0'
             />
             <Image
               src={planter}
               alt='Planter'
-              className='image h-[25vw] w-[18vw] object-cover opacity-0'
+              className='image h-[28vw] w-[21vw] object-cover opacity-0'
             />
           </div>
         </div>
