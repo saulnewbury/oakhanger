@@ -10,8 +10,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 export default function TextReveal({ text, isParalax }) {
   const container = useRef()
 
-  const start = isParalax ? '80%' : '80%'
-
   useGSAP(
     () => {
       gsap.fromTo(

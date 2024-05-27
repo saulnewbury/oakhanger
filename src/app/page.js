@@ -1,15 +1,9 @@
 'use client'
 
-import { useRef, useEffect, useContext } from 'react'
-
-import { gsap } from 'gsap'
-import { useGSAP } from '@gsap/react'
-
 import Image from 'next/image'
 
-import { MenuContext } from './Context'
-
 import Cta from './lib/Cta'
+import HeroTextReveal from './HeroTextReveal'
 import TextRevealOpacity from './lib/TextRevealOpacity'
 
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
@@ -36,76 +30,24 @@ const images = [
 ]
 
 export default function Home() {
-  const container = useRef()
-
-  const { isOpen, ready, isReady } = useContext(MenuContext)
-
-  useEffect(() => {
-    window.addEventListener('beforeunload', () => {
-      ready(true)
-    })
-
-    return () => {
-      window.removeEventListener('beforeunload', () => {
-        ready(true)
-      })
-    }
-  }, [])
-
-  useGSAP(
-    () => {
-      if (!isReady && isOpen) {
-        gsap.set('h1 span', { opacity: 0 })
-      }
-
-      if (isReady && isOpen) {
-        gsap.fromTo('h1 span', { opacity: 0 }, { opacity: 1, stagger: 0.06 })
-      }
-    },
-    { scope: container, dependencies: [isOpen, isReady] }
-  )
   return (
     <>
       {/* hero */}
-      <section ref={container} className='h-full relative'>
+      <section className='h-[100vh] w-[100vw] relative'>
         <Image
-          className='object-cover object-center h-full brightness-100'
+          width='868'
+          height='798'
+          className='object-cover object-center h-full w-full'
           src={kamIdris}
           alt='Living space showcasing high end furniture and lighting'
           priority={true}
         />
         <h1 className='absolute top-[55vh] text-white text-6xl ml-10 leading-[1.3em]'>
-          <span>W</span>
-          <span>e</span>&nbsp;
-          <span>t</span>
-          <span>u</span>
-          <span>r</span>
-          <span>n</span>&nbsp;
-          <span className='italic'>y</span>
-          <span className='italic'>o</span>
-          <span className='italic'>u</span>
-          <span className='italic'>r</span>
-          <br />
-          <span>i</span>
-          <span>d</span>
-          <span>e</span>
-          <span>a</span>
-          <span>s</span>&nbsp;
-          <span>i</span>
-          <span>n</span>
-          <span>t</span>
-          <span>o</span>&nbsp;
-          <span className='italic'>r</span>
-          <span className='italic'>e</span>
-          <span className='italic'>a</span>
-          <span className='italic'>l</span>
-          <span className='italic'>i</span>
-          <span className='italic'>t</span>
-          <span className='italic'>y</span>
+          <HeroTextReveal />
         </h1>
       </section>
       {/* Services */}
-      <section className='services h-[max-content] w-[100vw] '>
+      <section className='services w-[100vw]'>
         <div className='px-10'>
           <h2 className='text-5xl font-light mt-[10rem] mb-[200px] text-center'>
             <TextRevealOpacity

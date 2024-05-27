@@ -5,8 +5,6 @@ import { gsap } from 'gsap/gsap-core'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 
-import { useWindowSize } from '@uidotdev/usehooks'
-
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Parallax({

@@ -1,27 +1,14 @@
 'use client'
 
-import { useRef, useContext, useEffect } from 'react'
+import { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import { MenuContext } from '../Context'
+gsap.registerPlugin(ScrollTrigger)
 
 export default function TextRevealOpacity({ text, justification }) {
   const container = useRef()
-
-  const { ready } = useContext(MenuContext)
-
-  useEffect(() => {
-    window.addEventListener('beforeunload', () => {
-      ready(true)
-    })
-
-    return () => {
-      window.removeEventListener('beforeunload', () => {
-        ready(true)
-      })
-    }
-  }, [])
 
   useGSAP(
     () => {
@@ -30,7 +17,7 @@ export default function TextRevealOpacity({ text, justification }) {
         { opacity: 0 },
         {
           scrollTrigger: {
-            trigger: '.chars',
+            trigger: container.current,
             start: 'top 80%'
           },
           opacity: 1,

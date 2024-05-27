@@ -74,7 +74,7 @@ export default function Hero({ title }) {
   )
 
   return (
-    <section ref={container} className='h-full'>
+    <section ref={container} className='h-[100vh]'>
       <div
         ref={circle}
         className='h-[100vh] w-[100vw] absolute top-0 left-0 flex justify-center items-center'

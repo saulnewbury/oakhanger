@@ -29,7 +29,7 @@ export default function About() {
           </Parallax>
         </div>
       </section>
-      <section>
+      <section className='pb-5'>
         <h2 className='pt-[10vh] pb-[5rem] text-5xl px-10'>
           <TextRevealOpacity
             justification='center'
