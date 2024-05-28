@@ -142,6 +142,14 @@ export default function Menu() {
           </Link>
 
           <Link
+            className={`link ${pathname === 'about2' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
+            href='/about2'
+            onClick={handleClick}
+          >
+            <span className='inline-block'>About2</span>
+          </Link>
+
+          <Link
             className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
             href='/manufacturing'
             onClick={handleClick}
@@ -149,12 +157,12 @@ export default function Menu() {
             <span className='inline-block'>Manufacturing</span>
           </Link>
 
-          <Link
+          {/* <Link
             className={`link ${pathname === '#' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
             href='#'
           >
             <span className='inline-block'>Our products</span>
-          </Link>
+          </Link> */}
 
           <Link
             className={`link ${pathname === '#' ? 'active' : ''} overflow-hidden leading-[.8]`}

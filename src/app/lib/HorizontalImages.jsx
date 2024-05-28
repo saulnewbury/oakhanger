@@ -52,7 +52,7 @@ export default function HorizontalImages() {
   return (
     <div ref={container}>
       <div className='overflow-hidden w-full h-[max-content] px-10'>
-        <div className='pb-[5rem]'>
+        <div>
           <div className='image-container flex items-center gap-2'>
             <Image
               src={planter}
