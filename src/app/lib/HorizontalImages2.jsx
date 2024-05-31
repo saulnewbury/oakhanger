@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from 'react'
+import { useRef, useContext, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -24,44 +24,59 @@ const images = [
   { image: planter, alt: 'planter' }
 ]
 
+import { MenuContext } from '../Context'
+
 export default function HorizontalImages() {
   const container = useRef()
 
+  const { isOpen, isReady, ready } = useContext(MenuContext)
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', () => {
+      ready(true)
+    })
+
+    return () => {
+      window.removeEventListener('beforeunload', () => {
+        ready(true)
+      })
+    }
+  }, [])
+
   useGSAP(
     () => {
-      // gsap.set('.image-container', { xPercent: 0 })
+      if (isReady && isOpen) {
+        gsap.fromTo('.image', { opacity: 0 }, { opacity: 1, duration: 1 })
 
-      // Oacity
-      gsap.fromTo('.image', { opacity: 0 }, { opacity: 1, duration: 1 })
-
-      const tl = gsap.timeline()
-      tl.fromTo(
-        '.image-container',
-        {
-          xPercent: 0,
-          yPercent: 10
-        },
-        {
-          xPercent: -3,
-          yPercent: 0,
-          duration: 1
-          // delay: 0.5
-        }
-      ).fromTo(
-        '.image-container',
-        { xPecent: -3 },
-        {
-          scrollTrigger: {
-            trigger: '.image-container',
-            start: 'top 100%',
-            scrub: 0.1,
-            marker: true
+        const tl = gsap.timeline()
+        tl.fromTo(
+          '.image-container',
+          {
+            xPercent: 0,
+            yPercent: 10
           },
-          xPercent: -20
-        }
-      )
+          {
+            xPercent: -3,
+            yPercent: 0,
+            duration: 1,
+            delay: 1
+          }
+        ).fromTo(
+          '.image-container',
+          { xPecent: -3 },
+          {
+            scrollTrigger: {
+              trigger: '.image-container',
+              start: 'top 100%',
+              scrub: 0.1,
+              marker: true
+            },
+            xPercent: -20
+          }
+        )
+      }
     },
-    { scope: container }
+    { scope: container, dependencies: [isOpen, isReady] }
   )
 
   return (

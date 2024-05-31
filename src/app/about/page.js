@@ -104,15 +104,6 @@ export default function About() {
           <div className='overlay-paul bg-white h-full w-full absolute top-0 left-0 origin-right'></div>
         </div>
       </section>
-
-      {/* <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br /> */}
       <section className='px-10 flex justify-between'>
         <div className='self-end'>
           <div className='flex justify-end mb-10'>

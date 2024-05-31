@@ -15,6 +15,7 @@ import TextRevealOpacity from '../lib/TextRevealOpacity'
 import Parallax from '../lib/Parallax'
 
 import Paul from '@/app/lib/images/paul-landscape.webp'
+import Urchin from '@/app/lib/images/urchin.webp'
 
 export default function About() {
   const intro = useRef()
@@ -100,18 +101,25 @@ export default function About() {
         </div>
       </section>
 
-      <section className='px-10 pt-[15rem] backdrop:flex justify-start'>
-        <Parallax speed={0.05}>
-          <h4 className='mb-5 font-normal'>Purpose</h4>
-          <p className='inline-block max-w-[400px]'>
-            Our primary purpose is to preserve the way of life for artisans
-            whilst offering a service that is neither exploitative, exclusive,
-            nor consumptive. We aim to make products that are affordable to many
-            and that endure for long enough to allow others to benefit. To this
-            end we make the common antiquities of the future. Products that
-            could be passed down or, sold, repaired and refinished.
-          </p>
-        </Parallax>
+      <section className='px-10 pt-[15rem] flex justify-start'>
+        <div>
+          <Parallax speed={0.05} className='basis-1/3'>
+            <h4 className='mb-5 font-normal'>Purpose</h4>
+            <p className='inline-block max-w-[400px]'>
+              Our primary purpose is to preserve the way of life for artisans
+              whilst offering a service that is neither exploitative, exclusive,
+              nor consumptive. We aim to make products that are affordable to
+              many and that endure for long enough to allow others to benefit.
+              To this end we make the common antiquities of the future. Products
+              that could be passed down or, sold, repaired and refinished.
+            </p>
+          </Parallax>
+        </div>
+        <Image
+          className='basis-1/3'
+          src={Urchin}
+          alt='lamp whose design is inspired by a sea urchin'
+        />
       </section>
 
       <section className='px-10 pt-[10rem] flex justify-end'>
@@ -119,8 +127,8 @@ export default function About() {
           <h4 className='mb-5 font-normal'>Journey</h4>
           <p className='inline-block max-w-[400px]'>
             We endeavor to avail ourselves of the technologies and manufacturing
-            principles that best support our mission. Currently these include,
-            dimensional design, CG, rendering and CNC programming as. These
+            principles that best support our mission. Currently these include
+            three dimensional design, CG rendering and CNC programming. These
             tools alow us to help you visualise and communicate your ideas –
             beyond whatever artisanal requirements they may have – to other,
             artisans working in alternative materials and disciplines.

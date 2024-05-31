@@ -11,7 +11,6 @@ import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 import Parallax from './Parallax'
-import TextReveal from './TextReveal'
 
 import { MenuContext } from '../Context'
 
@@ -48,9 +47,11 @@ export default function Hero({ title }) {
     () => {
       if (!isReady && isOpen) {
         gsap.set('span', { yPercent: 105 })
+        gsap.set('span', { opacity: 0 })
       }
 
       if (isReady && isOpen) {
+        gsap.set('span', { opacity: 1 })
         gsap.fromTo(
           'span',
           {
@@ -67,9 +68,11 @@ export default function Hero({ title }) {
     () => {
       if (!isReady && isOpen) {
         gsap.set('span', { yPercent: 100 })
+        gsap.set('span', { opacity: 0 })
       }
 
       if (isReady && isOpen) {
+        gsap.set('span', { opacity: 1 })
         gsap.fromTo(
           'span',
           { yPercent: 100, opacity: 1 },
@@ -93,7 +96,7 @@ export default function Hero({ title }) {
         {title.split('').map((c, i) => (
           <span
             key={i}
-            className='inline-block'
+            className='inline-block opacity-0'
             dangerouslySetInnerHTML={createHtml(c)}
           ></span>
         ))}
