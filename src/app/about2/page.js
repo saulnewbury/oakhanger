@@ -10,7 +10,6 @@ import HorizontalImages2 from '../lib/HorizontalImages2'
 import Cta from '@/app/lib/Cta.jsx'
 import Header2 from '@/app/lib/Header2.jsx'
 
-import TextReveal from '../lib/TextReveal'
 import TextRevealOpacity from '../lib/TextRevealOpacity'
 import Parallax from '../lib/Parallax'
 
@@ -18,7 +17,6 @@ import Paul from '@/app/lib/images/paul-landscape.webp'
 import Urchin from '@/app/lib/images/urchin.webp'
 
 export default function About() {
-  const intro = useRef()
   const artisan = useRef()
 
   useGSAP(() => {
@@ -29,7 +27,7 @@ export default function About() {
         scrollTrigger: {
           trigger: '.artisan-container',
           start: 'top 95%',
-          end: 'top 90%',
+          end: 'top 85%',
           scrub: 5
         },
         scale: 1,
@@ -44,10 +42,10 @@ export default function About() {
       {
         scrollTrigger: {
           trigger: '.artisan-container',
-          start: 'top 90%',
+          start: 'top 80%',
           scrub: true
         },
-        scale: 1.1,
+        scale: 1.13,
         duration: 1
       }
     )
@@ -123,7 +121,7 @@ export default function About() {
       </section>
 
       <section className='px-10 pt-[10rem] flex justify-end'>
-        <Parallax speed={0.05}>
+        <Parallax speed={0.03}>
           <h4 className='mb-5 font-normal'>Journey</h4>
           <p className='inline-block max-w-[400px]'>
             We endeavor to avail ourselves of the technologies and manufacturing

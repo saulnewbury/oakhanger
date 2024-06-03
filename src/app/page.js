@@ -5,9 +5,11 @@ import Image from 'next/image'
 import Cta from './lib/Cta'
 import HeroTextReveal from './HeroTextReveal'
 import TextRevealOpacity from './lib/TextRevealOpacity'
+import ImageReveal from './lib/ImageReveal'
 
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
 import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
+import portaRomana from '@/app/lib/images/porta-romana.webp'
 
 import welding from '../../public/images/artisans/welding.jpg'
 import masonry from '../../public/images/artisans/masonry.jpg'
@@ -17,6 +19,7 @@ import joinery from '../../public/images/artisans/joinery.jpg'
 import drop from '../../public/images/artisans/drop.jpg'
 import goldLeafing from '../../public/images/artisans/gold-leaf-cat.jpg'
 import design from '../../public/images/artisans/design.jpg'
+import Parallax from './lib/Parallax'
 
 const images = [
   welding,
@@ -43,36 +46,43 @@ export default function Home() {
           priority={true}
         />
         <h1 className='absolute top-[55vh] text-white text-6xl ml-10 leading-[1.3em]'>
+          {/* <Parallax> */}
           <HeroTextReveal />
+          {/* </Parallax> */}
         </h1>
       </section>
       {/* Services */}
-      <section className='services w-[100vw]'>
-        <div className='px-10'>
-          <h2 className='text-5xl font-light mt-[10rem] mb-[200px] text-center'>
+      <section className='services w-[100vw] mt-[200px]'>
+        {/* <div className='px-10'>
+          <h2 className='text-5xl font-light mt-[4rem] mb-[200px]'>
             <TextRevealOpacity
               justification='center'
               text='With you from concept to creation'
             />
           </h2>
-        </div>
+        </div> */}
         <div className='flex justify-between'>
           <div className='text-right w-full flex justify-center items-center'>
-            <div>
-              <h3 className='text-3xl font-light mb-5 max-w-[350px]'>
-                Design and realisation
-              </h3>
-              <p className='max-w-[350px]'>
-                We work with interior designers and creators to help them
-                conceptualise and realise their projects.
-              </p>
-            </div>
+            <Parallax speed='.05'>
+              <div>
+                <h3 className='text-3xl font-light mb-5 max-w-[350px]'>
+                  Design and realisation
+                </h3>
+                <p className='max-w-[350px]'>
+                  We work with interior designers and creators to help them
+                  conceptualise and realise their projects.
+                </p>
+              </div>
+            </Parallax>
           </div>
           <div className='aspect-[1260/1612] overflow-hidden basis-[80%]'>
-            <Image
-              className='object-cover object-[center_center] h-full brightness-90'
-              src={xie}
+            <ImageReveal
+              // src={xie}
+              src={portaRomana}
               alt='xie lamp'
+              classes={
+                'object-cover object-[center_center] h-full brightness-90 brightness-[1.2] contrast-[1.1];'
+              }
             />
           </div>
         </div>

@@ -45,39 +45,53 @@ export default function HorizontalImages() {
 
   useGSAP(
     () => {
+      if (!isReady && isOpen) {
+        console.log('hi')
+        gsap.set('.image', { opacity: 0 })
+      }
+
       if (isReady && isOpen) {
-        gsap.fromTo('.image', { opacity: 0 }, { opacity: 1, duration: 1 })
+        console.log('ho')
+        gsap.set('.image', { opacity: 0 })
+        gsap.to('.image', { opacity: 1, delay: 0.5 })
+        // gsap.fromTo('.image', { opacity: 0 }, { opacity: 1, duration: 1 })
 
         const tl = gsap.timeline()
         tl.fromTo(
-          '.image-container',
-          {
-            xPercent: 0,
-            yPercent: 10
-          },
+          '.image-container ',
+          { xPercent: 0, yPercent: 20 },
           {
             xPercent: -3,
             yPercent: 0,
             duration: 1,
-            delay: 1
-          }
-        ).fromTo(
-          '.image-container',
-          { xPecent: -3 },
-          {
-            scrollTrigger: {
-              trigger: '.image-container',
-              start: 'top 100%',
-              scrub: 0.1,
-              marker: true
-            },
-            xPercent: -20
+            delay: 0.4,
+            onComplete: () => {
+              setUpScrollTrigger()
+            }
           }
         )
       }
     },
     { scope: container, dependencies: [isOpen, isReady] }
   )
+
+  function setUpScrollTrigger() {
+    gsap.fromTo(
+      '.image-container ',
+      { xPercent: -3 },
+      {
+        scrollTrigger: {
+          trigger: '.image-container',
+          start: 'top 95%',
+          scrub: 0.1,
+          marker: true
+        },
+        xPercent: -20,
+        duration: 1,
+        ease: 'linear'
+      }
+    )
+  }
 
   return (
     <div ref={container}>
