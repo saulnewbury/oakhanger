@@ -6,49 +6,46 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-import HorizontalImages from '../lib/HorizontalImages'
+import HorizontalImages2 from '../lib/HorizontalImages2'
 import Cta from '@/app/lib/Cta.jsx'
-import Header from '@/app/lib/Header.jsx'
+import Header2 from '@/app/lib/Header2.jsx'
 
-import TextReveal from '../lib/TextReveal'
 import TextRevealOpacity from '../lib/TextRevealOpacity'
 import Parallax from '../lib/Parallax'
 
 import Paul from '@/app/lib/images/paul-landscape.webp'
-const about = [
-  'Oakhanger Metalworks is a collective of',
-  'artisans manufacturing furniture and',
-  'lighting based in Hampshire.'
-]
+import Urchin from '@/app/lib/images/urchin.webp'
 
 export default function About() {
-  const intro = useRef()
-  const paul = useRef()
+  const artisan = useRef()
 
   useGSAP(() => {
     gsap.fromTo(
-      paul.current,
-      { objectPosition: 'top' },
+      '.artisan-container',
+      { scale: 1.05, opacity: 0 },
       {
         scrollTrigger: {
-          trigger: '.overlay-paul',
-          start: 'top 60%',
-          scrub: true
+          trigger: '.artisan-container',
+          start: 'top 95%',
+          end: 'top 85%',
+          scrub: 5
         },
-        objectPosition: '0% 20%',
-        duration: 1
+        scale: 1,
+        opacity: 1,
+        duration: 0.5
       }
     )
+
     gsap.fromTo(
-      '.overlay-paul',
-      { scaleX: 1 },
+      artisan.current,
+      { scale: 1 },
       {
         scrollTrigger: {
-          trigger: '.overlay-paul',
-          start: 'top 60%'
+          trigger: '.artisan-container',
+          start: 'top 80%',
+          scrub: true
         },
-        scaleX: 0,
-        ease: 'power2.inOut',
+        scale: 1.13,
         duration: 1
       }
     )
@@ -56,79 +53,85 @@ export default function About() {
 
   return (
     <>
-      <Header title='About us' />
-      <section className='px-10 pt-[10vh] pb-[50vh]'>
-        <div ref={intro} className='flex text-[24px]'>
-          <Parallax speed={-0.2} className='self-end'>
-            <TextReveal text={about} isParalax={true} />
-          </Parallax>
+      <section className='px-10 h-[95vh] flex items-center'>
+        <div>
+          <Header2 title='About us' />
         </div>
       </section>
       <section>
-        <HorizontalImages />
-        <h2 className='pt-[10vh] pb-[5rem] text-5xl px-10'>
+        <HorizontalImages2 />
+        <h2 className='pt-[10vh] pb-[4rem] text-5xl px-10'>
           <TextRevealOpacity
             justification='center'
             text='We make things we believe in. . .'
           />
         </h2>
       </section>
-      <section className='px-10 pt-[4rem]'>
+      <section className='px-10 pt-[8rem] pb-[6rem]'>
         {/* <div className='self-end'> */}
-        <div className='flex justify-end mb-[8rem]'>
+        <div className='flex justify-end'>
           <div>
-            <h4 className='mb-5 font-normal'>Where it all began</h4>
-            <p className='inline-block max-w-[400px]'>
-              We started out as apprentices at Tom, Harral Metalsmiths; a small
-              company, with a 20 year history of forging and, fabricating
-              thousands of lamps and, tables for industry leader, Porta, Romana.
-              Thanks to Tom Harral we were, able to set up Oakhanger Metalworks
-              in, 2019, as a way of exploring how we, might address the
-              existential problems, facing artisan metalworkers in an,
-              increasingly low cost consumer, environment.
-            </p>
+            <Parallax speed={0.04}>
+              <h4 className='mb-5 font-normal'>Where it all began</h4>
+              <p className='inline-block max-w-[400px]'>
+                We started out as apprentices at Tom Harral Metalsmiths, a small
+                company with a 20 year history of forging and fabricating
+                thousands of lamps and tables, for industry leader, Porta
+                Romana. Thanks to Tom Harral we were able to set up Oakhanger
+                Metalworks in 2019, as a way of exploring how we might address
+                the existential problems facing artisan metalworkers in an
+                increasingly low cost consumer, environment.
+              </p>
+            </Parallax>
           </div>
         </div>
         {/* </div> */}
       </section>
 
       <section className='px-10'>
-        <div className=' h-[80vh] width-[100%] relative'>
-          {/* <Image className='pr-[3rem]' src={Paul} alt='Metal worker' /> */}
+        <div className='artisan-container h-[85vh] width-[100%] relative overflow-hidden'>
           <Image
-            ref={paul}
-            className='w-[100%] h-[100%] object-cover overflow-hidden object-top saturate-50'
+            ref={artisan}
+            className='w-[100%] h-[100%] object-cover object-top saturate-50'
             src={Paul}
             alt='Metal worker'
           />
-          <div className='overlay-paul bg-white h-full w-full absolute top-0 left-0 origin-right'></div>
         </div>
       </section>
-      <section className='px-10 flex justify-between'>
-        <div className='self-end'>
-          <div className='flex justify-end mb-10'>
-            <div>
-              <Parallax speed={0.05}>
-                <h4 className='mb-5 font-normal'>Purpose</h4>
-                <p className='inline-block max-w-[400px]'>
-                  Our primary purpose was to preserve, the way of life of
-                  artisans whilst offering, a service that was neither
-                  exploitative, exclusive, nor consumptive. This meant, our
-                  services had to make products that, would be affordable to
-                  many and, endure for long enough to allow others, to benefit.
-                  In short we needed to make, the common antiquities of the
-                  future. Products that could be passed down or, sold, repaired
-                  and refinished.
-                </p>
-              </Parallax>
-            </div>
-          </div>
-          {/* here */}
+
+      <section className='px-10 pt-[15rem] flex justify-start'>
+        <div>
+          <Parallax speed={0.05} className='basis-1/3'>
+            <h4 className='mb-5 font-normal'>Purpose</h4>
+            <p className='inline-block max-w-[400px]'>
+              Our primary purpose is to preserve the way of life for artisans
+              whilst offering a service that is neither exploitative, exclusive,
+              nor consumptive. We aim to make products that are affordable to
+              many and that endure for long enough to allow others to benefit.
+              To this end we make the common antiquities of the future. Products
+              that could be passed down or, sold, repaired and refinished.
+            </p>
+          </Parallax>
         </div>
-        <div className=' h-[max-content] w-[max-content]  relative'>
-          <Image className='pr-[3rem]' src={Paul} alt='Metal worker' />
-          <div className='paul bg-white h-full w-full absolute top-0 left-0 origin-right'></div>
-        </div>
+        <Image
+          className='basis-1/3'
+          src={Urchin}
+          alt='lamp whose design is inspired by a sea urchin'
+        />
+      </section>
+
+      <section className='px-10 pt-[10rem] flex justify-end'>
+        <Parallax speed={0.03}>
+          <h4 className='mb-5 font-normal'>Journey</h4>
+          <p className='inline-block max-w-[400px]'>
+            We endeavor to avail ourselves of the technologies and manufacturing
+            principles that best support our mission. Currently these include
+            three dimensional design, CG rendering and CNC programming. These
+            tools alow us to help you visualise and communicate your ideas –
+            beyond whatever artisanal requirements they may have – to other,
+            artisans working in alternative materials and disciplines.
+          </p>
+        </Parallax>
       </section>
       <Cta />
     </>

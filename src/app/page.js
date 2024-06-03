@@ -19,17 +19,26 @@ import joinery from '../../public/images/artisans/joinery.jpg'
 import drop from '../../public/images/artisans/drop.jpg'
 import goldLeafing from '../../public/images/artisans/gold-leaf-cat.jpg'
 import design from '../../public/images/artisans/design.jpg'
+import goldLeaf1 from '@/app/lib/images/gold-leaf-1.webp'
+import goldLeaf2 from '@/app/lib/images/gold-leaf-2.webp'
+import powerHammer from '@/app/lib/images/power-hammer.webp'
+import bendingMetal from '@/app/lib/images/bending-metal.webp'
+
 import Parallax from './lib/Parallax'
 
 const images = [
   welding,
   masonry,
+  goldLeaf1,
   glass,
   upholstery,
   joinery,
+  bendingMetal,
   drop,
   goldLeafing,
-  design
+  design,
+  goldLeaf2,
+  powerHammer
 ]
 
 export default function Home() {
@@ -97,7 +106,7 @@ export default function Home() {
               require a variety of materials and artisan disciplines.
             </span>
           </p>
-          <div className='grid grid-cols-4 grid-rows-2 gap-[1vw] h-[max-content]'>
+          <div className='grid grid-cols-6 grid-rows-2 gap-[.5vw] h-[max-content]'>
             {images.map((img, idx) => (
               <Image
                 key={idx}

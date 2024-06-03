@@ -116,14 +116,14 @@ export default function Menu() {
       <div
         className={`menu-bg flex flex-col h-full w-full absolute top-0 left-0 ${isOpen ? '' : 'open'}`}
       >
-        <div className='panel basis-1/3 bg-white opacity-0'></div>
-        <div className='panel basis-1/3 bg-white opacity-0'></div>
-        <div className='panel basis-1/3 bg-white opacity-0'></div>
+        <div className='panel basis-1/3 bg-neutral-800 opacity-0'></div>
+        <div className='panel basis-1/3 bg-neutral-800 opacity-0'></div>
+        <div className='panel basis-1/3 bg-neutral-800 opacity-0'></div>
       </div>
       {/* Nav links */}
       <div className='menu-nav h-full w-full px-10 py-8 absolute top-0 left-0 flex items-center justify-between'>
         <div
-          className={`${isOpen ? 'open' : ''} flex flex-col uppercase font-normal text-black -mt-2 text-[4rem] leading-snug`}
+          className={`${isOpen ? 'open' : ''} flex flex-col uppercase font-light text-white -mt-2 text-[4rem] leading-snug`}
         >
           <Link
             className={`link  ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
@@ -141,13 +141,13 @@ export default function Menu() {
             <span className='inline-block'>About</span>
           </Link>
 
-          <Link
+          {/* <Link
             className={`link ${pathname === 'about2' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
             href='/about2'
             onClick={handleClick}
           >
             <span className='inline-block'>About2</span>
-          </Link>
+          </Link> */}
 
           <Link
             className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
