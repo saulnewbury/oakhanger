@@ -16,6 +16,12 @@ import Parallax from '../lib/Parallax'
 import Paul from '@/app/lib/images/paul-landscape.webp'
 import Urchin from '@/app/lib/images/urchin.webp'
 
+const about = [
+  'Oakhanger Metalworks is a collective of',
+  'artisans manufacturing furniture and',
+  'lighting based in Hampshire.'
+]
+
 export default function About() {
   const artisan = useRef()
 
@@ -55,7 +61,7 @@ export default function About() {
     <>
       <section className='px-10 h-[95vh] flex items-center'>
         <div>
-          <Header2 title='About us' />
+          <Header2 title='About us' about={about} />
         </div>
       </section>
       <section>

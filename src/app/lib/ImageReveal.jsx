@@ -10,20 +10,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ImageReveal({ children, classes, src, alt }) {
-  console.log(children)
   const image = useRef()
 
   useGSAP(() => {
     gsap.fromTo(
       image.current,
-      { objectPosition: '50% 100%' },
+      { objectPosition: '50% 80%' },
       {
         scrollTrigger: {
           trigger: '.overlay',
           start: 'top 100%',
           scrub: true
         },
-        objectPosition: '50% 20%',
+        objectPosition: '50% 40%',
         duration: 1
       }
     )
@@ -33,7 +32,7 @@ export default function ImageReveal({ children, classes, src, alt }) {
       {
         scrollTrigger: {
           trigger: '.overlay',
-          start: 'top 60%'
+          start: 'top 70%'
         },
         scaleX: 0,
         ease: 'power2.inOut',

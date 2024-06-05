@@ -14,13 +14,7 @@ import Parallax from './Parallax'
 
 import { MenuContext } from '../Context'
 
-const about = [
-  'Oakhanger Metalworks is a collective of',
-  'artisans manufacturing furniture and',
-  'lighting based in Hampshire.'
-]
-
-export default function Hero({ title }) {
+export default function Hero({ title, about }) {
   const intro = useRef()
   const container = useRef()
   const text = useRef()

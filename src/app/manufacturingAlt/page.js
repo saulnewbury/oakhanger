@@ -10,17 +10,9 @@ import CTA from '@/app/lib/Cta.jsx'
 import TextRevealOpacity from '../lib/TextRevealOpacity'
 import TextReveal from '../lib/TextReveal'
 
-import Header2 from '@/app/lib/Header2.jsx'
-
-// import Hero from '../lib/Header'
+import Hero from '../lib/Header'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
-
-const about = [
-  'From vision to viable concept to physical',
-  'instance, we help you find the soltions needed',
-  'to make your vision come to life.'
-]
 
 let muted = false
 
@@ -49,12 +41,7 @@ export default function DesignAndRealisation() {
 
   return (
     <>
-      {/* <Hero title='Manufacture' /> */}
-      <section className='px-10 h-[95vh] flex items-center'>
-        <div>
-          <Header2 title='Manufacturers' about={about} />
-        </div>
-      </section>
+      <Hero title='Manufacture' />
       <section className='h-full w-full'>
         <video
           ref={video}

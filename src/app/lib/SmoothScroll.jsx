@@ -1,10 +1,11 @@
 'use client'
 
 import React, { useRef, useEffect } from 'react'
-import { ReactLenis } from 'lenis/react'
+import { ReactLenis, useLenis } from 'lenis/react'
 import { gsap } from 'gsap'
 
 export default function SmoothScroll({ children }) {
+  console.log(useLenis)
   const lenisRef = useRef()
 
   useEffect(() => {

@@ -3,9 +3,11 @@
 import Image from 'next/image'
 
 import Cta from './lib/Cta'
+import ButtonMain from '../app/lib/ButtonMain'
 import HeroTextReveal from './HeroTextReveal'
 import TextRevealOpacity from './lib/TextRevealOpacity'
 import ImageReveal from './lib/ImageReveal'
+import HeroCta from './HeroCta'
 
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
 import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
@@ -25,6 +27,9 @@ import powerHammer from '@/app/lib/images/power-hammer.webp'
 import bendingMetal from '@/app/lib/images/bending-metal.webp'
 
 import Parallax from './lib/Parallax'
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap'
+import { useRef } from 'react'
 
 const images = [
   welding,
@@ -42,34 +47,49 @@ const images = [
 ]
 
 export default function Home() {
+  const collaboration = useRef()
+  useGSAP(() => {
+    // gsap.to('body', {
+    //   scrollTrigger: {
+    //     trigger: collaboration.current,
+    //     start: 'top 80%',
+    //     end: 'top 20%',
+    //     scrub: true
+    //     // markers: true
+    //   },
+    //   background: '#d3d3d3'
+    // })
+  })
   return (
     <>
       {/* hero */}
-      <section className='h-[100vh] w-[100vw] relative'>
+      <section className='h-[150vh] w-[100vw] relative'>
         <Image
           width='868'
           height='798'
-          className='object-cover object-center h-full w-full'
+          className='object-cover object-center h-full w-full brightness-[80%]'
           src={kamIdris}
           alt='Living space showcasing high end furniture and lighting'
           priority={true}
         />
-        <h1 className='absolute top-[55vh] text-white text-6xl ml-10 leading-[1.3em]'>
-          {/* <Parallax> */}
-          <HeroTextReveal />
-          {/* </Parallax> */}
+        <h1 className='absolute top-[55vh] translate-y-[-50%] text-white text-6xl font-light ml-10 leading-[1.3em]'>
+          <Parallax speed={0.1}>
+            <HeroTextReveal />
+          </Parallax>
         </h1>
+
+        <HeroCta />
       </section>
       {/* Services */}
-      <section className='services w-[100vw] mt-[200px]'>
-        {/* <div className='px-10'>
-          <h2 className='text-5xl font-light mt-[4rem] mb-[200px]'>
+      <section className='services w-[100vw] mt-[80px]'>
+        <div className='px-10'>
+          <h2 className='text-6xl font-light mt-[4rem] mb-[200px]'>
             <TextRevealOpacity
               justification='center'
-              text='With you from concept to creation'
+              text='From concept to creation. . . '
             />
           </h2>
-        </div> */}
+        </div>
         <div className='flex justify-between'>
           <div className='text-right w-full flex justify-center items-center'>
             <Parallax speed='.05'>
@@ -77,29 +97,34 @@ export default function Home() {
                 <h3 className='text-3xl font-light mb-5 max-w-[350px]'>
                   Design and realisation
                 </h3>
-                <p className='max-w-[350px]'>
+                <p className='max-w-[350px] mb-[60px]'>
                   We work with interior designers and creators to help them
                   conceptualise and realise their projects.
                 </p>
+                <div className='flex justify-end'>
+                  <ButtonMain text='Read more' />
+                </div>
               </div>
             </Parallax>
           </div>
           <div className='aspect-[1260/1612] overflow-hidden basis-[80%]'>
             <ImageReveal
-              // src={xie}
-              src={portaRomana}
+              src={xie}
+              // src={portaRomana}
               alt='xie lamp'
               classes={
-                'object-cover object-[center_center] h-full brightness-90 brightness-[1.2] contrast-[1.1];'
+                'object-cover object-[center_center] h-full brightness-90 contrast-[1.1];'
               }
             />
           </div>
         </div>
       </section>
       {/* collaborators */}
-      <section>
+      <section ref={collaboration}>
         <div className='px-10'>
-          <h2 className='text-5xl font-light my-40'>Collaboration</h2>
+          <h2 className='text-6xl font-light'>
+            <TextRevealOpacity justification='left' text='Our collaborators' />
+          </h2>
           <p className='text-right mb-20'>
             <span className='w-[350px] inline-block'>
               With our team of collaborators we are able to complete products

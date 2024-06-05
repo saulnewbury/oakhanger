@@ -1,8 +1,10 @@
 'use client'
+
 import { useRef, useContext, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import { useLenis } from 'lenis/react'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -28,6 +30,8 @@ import { MenuContext } from '../Context'
 
 export default function HorizontalImages() {
   const container = useRef()
+  const lenis = useLenis()
+  lenis?.stop()
 
   const { isOpen, isReady, ready } = useContext(MenuContext)
 
@@ -46,12 +50,10 @@ export default function HorizontalImages() {
   useGSAP(
     () => {
       if (!isReady && isOpen) {
-        console.log('hi')
         gsap.set('.image', { opacity: 0 })
       }
 
       if (isReady && isOpen) {
-        console.log('ho')
         gsap.set('.image', { opacity: 0 })
         gsap.to('.image', { opacity: 1, delay: 0.5 })
         // gsap.fromTo('.image', { opacity: 0 }, { opacity: 1, duration: 1 })
@@ -67,6 +69,7 @@ export default function HorizontalImages() {
             delay: 0.4,
             onComplete: () => {
               setUpScrollTrigger()
+              lenis?.start()
             }
           }
         )

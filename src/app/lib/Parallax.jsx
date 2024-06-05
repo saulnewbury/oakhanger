@@ -1,4 +1,5 @@
 'use client'
+
 import { useRef, useEffect } from 'react'
 
 import { gsap } from 'gsap/gsap-core'
@@ -7,12 +8,7 @@ import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Parallax({
-  className,
-  children,
-  speed = 0.4,
-  id = 'parallax'
-}) {
+export default function Parallax({ children, speed = 0.4, styles = '' }) {
   const trigger = useRef()
   const target = useRef()
 
@@ -21,13 +17,13 @@ export default function Parallax({
       scrollTrigger: {
         scrub: 1
       },
-      y: (i, target) => -ScrollTrigger.maxScroll(window) * speed,
+      y: () => -ScrollTrigger.maxScroll(window) * speed,
       ease: 'none'
     })
   })
 
   return (
-    <div ref={trigger}>
+    <div ref={trigger} className={styles}>
       <div ref={target}>{children}</div>
     </div>
   )

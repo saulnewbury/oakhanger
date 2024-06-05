@@ -1,14 +1,21 @@
-import { useRef, useEffect, useContext } from 'react'
+'use client'
 
+import { useRef, useEffect, useContext } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
-
 import { MenuContext } from './Context'
+import { useLenis } from 'lenis/react'
 
 export default function HeroTextReveal() {
-  const container = useRef()
-
   const { isOpen, ready, isReady } = useContext(MenuContext)
+
+  const lenis = useLenis()
+  lenis?.stop()
+
+  console.log(lenis)
+
+  const container = useRef()
+  const q = gsap.utils.selector(container)
 
   useEffect(() => {
     window.addEventListener('beforeunload', () => {
@@ -25,15 +32,45 @@ export default function HeroTextReveal() {
   useGSAP(
     () => {
       if (!isReady && isOpen) {
-        gsap.set('span', { opacity: 0 })
+        gsap.set(q('span'), { opacity: 0 })
       }
 
       if (isReady && isOpen) {
-        gsap.fromTo('span', { opacity: 0 }, { opacity: 1, stagger: 0.06 })
+        gsap.fromTo(
+          q('span'),
+          { opacity: 0 },
+          {
+            opacity: 1,
+            stagger: 0.06,
+            onComplete: () => {
+              setUpScrollTrigger()
+              console.log('hhhpppp')
+              lenis?.start()
+            }
+          }
+        )
       }
     },
-    { scope: container, dependencies: [isOpen, isReady] }
+    { dependencies: [isOpen, isReady] }
   )
+
+  function setUpScrollTrigger() {
+    lenis?.start()
+    gsap.fromTo(
+      q('span'),
+      { opacity: 1 },
+      {
+        scrollTrigger: {
+          trigger: 'span',
+          start: 'top 30%',
+          scrub: 0.1
+        },
+        opacity: 0,
+        stagger: 0.001
+      }
+    )
+  }
+
   return (
     <div ref={container}>
       <span className='opacity-[0]'>W</span>
