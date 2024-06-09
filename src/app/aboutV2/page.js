@@ -65,13 +65,13 @@ export default function About() {
         </div>
       </section>
       <section>
-        <HorizontalImages2 />
-        <h2 className='pt-[10vh] pb-[4rem] text-5xl px-10'>
+        <h2 className='pt-[10vh] pb-[8rem] text-5xl px-10 text-center'>
           <TextRevealOpacity
             justification='center'
             text='We make things we believe in. . .'
           />
         </h2>
+        <HorizontalImages2 />
       </section>
       <section className='px-10 pt-[8rem] pb-[6rem]'>
         {/* <div className='self-end'> */}

@@ -78,7 +78,7 @@ export default function Home() {
           </Parallax>
         </h1>
 
-        <HeroCta />
+        {/* <HeroCta /> */}
       </section>
       {/* Services */}
       <section className='services w-[100vw] mt-[80px]'>

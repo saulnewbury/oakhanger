@@ -9,10 +9,7 @@ import { useLenis } from 'lenis/react'
 export default function HeroTextReveal() {
   const { isOpen, ready, isReady } = useContext(MenuContext)
 
-  const lenis = useLenis()
-  lenis?.stop()
-
-  console.log(lenis)
+  const lenis = useRef(useLenis())
 
   const container = useRef()
   const q = gsap.utils.selector(container)
@@ -36,6 +33,7 @@ export default function HeroTextReveal() {
       }
 
       if (isReady && isOpen) {
+        lenis?.current?.stop()
         gsap.fromTo(
           q('span'),
           { opacity: 0 },
@@ -43,9 +41,10 @@ export default function HeroTextReveal() {
             opacity: 1,
             stagger: 0.06,
             onComplete: () => {
+              console.log(lenis?.isStopped)
+              lenis?.current?.start()
               setUpScrollTrigger()
               console.log('hhhpppp')
-              lenis?.start()
             }
           }
         )
@@ -55,7 +54,6 @@ export default function HeroTextReveal() {
   )
 
   function setUpScrollTrigger() {
-    lenis?.start()
     gsap.fromTo(
       q('span'),
       { opacity: 1 },

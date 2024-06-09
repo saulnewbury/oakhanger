@@ -94,7 +94,7 @@ export default function DesignAndRealisation() {
                 text={['We make things we believe in']}
               />
             </h4>
-            <span className='text-[24px] max-w-[479px] inline-block'>
+            <span className='max-w-[479px] inline-block'>
               From choosing materials and finishes to the design of
               manufacturing strategies, we find the solutions needed for turning
               your vision into a viable concept, and finally into a physical
@@ -110,7 +110,7 @@ export default function DesignAndRealisation() {
                 text='At the cost of manufacture'
               />
             </h4>
-            <span className='text-[24px] max-w-[479px] inline-block'>
+            <span className='max-w-[479px] inline-block'>
               For one-off designs we can take your concept into our own product
               line, allowing us to realise your idea, at cost of manufacturing.
               This is a unique proposition that makes sense to us. It makes
@@ -119,14 +119,14 @@ export default function DesignAndRealisation() {
             </span>
           </div>
         </div>
-        <p className='text-[40px] max-w-[15em] my-24'>
+        {/* <p className='text-[40px] max-w-[15em] my-24'>
           We can build, manufacture and consult on your designs, for you to sell
           as your own.
-        </p>
+        </p> */}
         <div className='flex justify-end'>
           <div>
             <h4 className='mb-5 font-normal'>With you from beginning to end</h4>
-            <span className='text-[24px] max-w-[479px] inline-block'>
+            <span className='max-w-[479px] inline-block'>
               We work closely with our customers, making sure we are on the same
               page at every step. Our artisans only clear items that reflect the
               highest quality of craftsmanship. However, you are the final
