@@ -52,7 +52,7 @@ export default function DesignAndRealisation() {
       {/* <Hero title='Manufacture' /> */}
       <section className='px-10 h-[95vh] flex items-center'>
         <div>
-          <Header2 title='Manufacturers' about={about} />
+          <Header2 title='We manufacture' about={about} />
         </div>
       </section>
       <section className='h-full w-full'>

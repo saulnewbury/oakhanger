@@ -1,6 +1,7 @@
 import { Poppins } from 'next/font/google'
 import { ContextProvider } from './ContextProvider'
 import SmoothScroll from './lib/SmoothScroll'
+import ScrollTriggerConfig from './lib/ScrollTriggerConfig'
 import './globals.css'
 
 import Topbar from './Topbar'
@@ -19,6 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
+      {/* <ScrollTriggerConfig /> */}
       <SmoothScroll>
         <body className={`${poppins.className} bg-white`}>
           <ContextProvider>

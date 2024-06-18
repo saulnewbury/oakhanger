@@ -67,7 +67,7 @@ export default function Home() {
         <Image
           width='868'
           height='798'
-          className='object-cover object-center h-full w-full brightness-[80%]'
+          className='object-cover object-center h-full w-full'
           src={kamIdris}
           alt='Living space showcasing high end furniture and lighting'
           priority={true}

@@ -20,6 +20,7 @@ export default function ImageReveal({ children, classes, src, alt }) {
         scrollTrigger: {
           trigger: '.overlay',
           start: 'top 100%',
+          end: 'bottom 0%',
           scrub: true
         },
         objectPosition: '50% 40%',
@@ -31,8 +32,9 @@ export default function ImageReveal({ children, classes, src, alt }) {
       { scaleX: 1 },
       {
         scrollTrigger: {
-          trigger: '.overlay',
-          start: 'top 70%'
+          trigger: '.bla',
+          start: 'top 70%',
+          markers: true
         },
         scaleX: 0,
         ease: 'power2.inOut',
@@ -42,11 +44,11 @@ export default function ImageReveal({ children, classes, src, alt }) {
   })
 
   return (
-    <section className='px-10'>
+    <div className='px-10 bla'>
       <div className=' h-[80vh] width-[100%] relative'>
         <Image ref={image} className={classes} src={src} alt={alt} />
-        <div className='overlay bg-white h-full w-full absolute top-0 left-0 origin-right'></div>
+        <div className='overlay bg-white absolute h-full w-full top-0 left-0 origin-right opacity-30'></div>
       </div>
-    </section>
+    </div>
   )
 }

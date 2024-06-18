@@ -23,6 +23,7 @@ export default function Hero({ title, about }) {
 
   useEffect(() => {
     window.addEventListener('beforeunload', () => {
+      console.log('unload')
       ready(true)
     })
 

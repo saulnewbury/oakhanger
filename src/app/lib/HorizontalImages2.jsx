@@ -31,7 +31,7 @@ import { MenuContext } from '../Context'
 export default function HorizontalImages() {
   const container = useRef()
   const lenis = useLenis()
-  lenis?.stop()
+  // lenis?.stop()
 
   const { isOpen, isReady, ready } = useContext(MenuContext)
 
@@ -69,7 +69,7 @@ export default function HorizontalImages() {
             delay: 0.4,
             onComplete: () => {
               setUpScrollTrigger()
-              lenis?.start()
+              // lenis?.start()
             }
           }
         )
@@ -79,9 +79,10 @@ export default function HorizontalImages() {
   )
 
   function setUpScrollTrigger() {
+    console.log(gsap.getProperty('.image-container', 'xPercent'))
     gsap.fromTo(
       '.image-container ',
-      { xPercent: -3 },
+      { xPercent: gsap.getProperty('.image-container', 'xPercent') },
       {
         scrollTrigger: {
           trigger: '.image-container',
@@ -106,7 +107,7 @@ export default function HorizontalImages() {
                 key={idx}
                 src={image.image}
                 alt={image.alt}
-                className='image h-[28vw] w-[21vw] object-cover opacity-0 px-[3px]'
+                className='image lg:h-[27vw] md:h-[32vw] sm:h-[36vw] aspect-[21/28] object-cover opacity-0 px-[3px]'
               />
             ))}
           </div>
