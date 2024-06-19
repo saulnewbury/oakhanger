@@ -50,7 +50,13 @@ export default function Topbar() {
           className={`link ${pathname === '#' ? 'active' : ''}`}
           href='/aboutV2'
         >
-          AboutV2
+          About V2
+        </Link>
+        <Link
+          className={`link ${pathname === '/manufacturing' ? 'active' : ''}`}
+          href='/manufacturing'
+        >
+          Manufacturing
         </Link>
         <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
           Our products

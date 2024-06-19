@@ -24,10 +24,10 @@ export default function RootLayout({ children }) {
       {/* <SmoothScroll> */}
       <body className={`${poppins.className} bg-white`}>
         <ContextProvider>
+          <Topbar />
           <ScrollSmootherGSAP>
             {children}
             <Menu />
-            <Topbar />
           </ScrollSmootherGSAP>
         </ContextProvider>
       </body>

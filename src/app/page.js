@@ -68,10 +68,10 @@ export default function Home() {
       <section className='services w-[100vw] mt-[80px]'>
         <div className='px-10'>
           <h2 className='text-6xl font-light mt-[4rem] mb-[200px]'>
-            {/* <TextRevealOpacity
+            <TextRevealOpacity
               justification='center'
               text='From concept to creation. . . '
-            /> */}
+            />
           </h2>
         </div>
         <div className='flex justify-between'>

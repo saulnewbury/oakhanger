@@ -17,7 +17,9 @@ export default function ScrollSmootherGSAP({ children }) {
   })
   return (
     <div id='smooth-wrapper'>
-      <div id='smooth-content'>{children}</div>
+      <div id='smooth-content' className='bg-white'>
+        {children}
+      </div>
     </div>
   )
 }
