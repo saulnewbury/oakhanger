@@ -2,16 +2,15 @@
 
 import React, { useRef, useEffect } from 'react'
 import { ReactLenis, useLenis } from 'lenis/react'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { gsap } from 'gsap'
 
 export default function SmoothScroll({ children }) {
   console.log(useLenis)
   const lenis = useRef()
+  const body = document.body
 
   useEffect(() => {
     function update(time) {
-      console.log(lenis.current?.lenis)
       lenis.current?.lenis?.raf(time * 1000)
     }
     gsap.ticker.add(update)
@@ -26,7 +25,11 @@ export default function SmoothScroll({ children }) {
       root
       ref={lenis}
       autoRaf={false}
-      options={{ lerp: 0.1 }}
+      options={{
+        lerp: 0.1
+        // wrapper: body.current,
+        // wheelEventsTarget: body.current
+      }}
       prevent
     >
       {children}

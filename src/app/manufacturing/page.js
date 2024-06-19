@@ -52,7 +52,7 @@ export default function DesignAndRealisation() {
       {/* <Hero title='Manufacture' /> */}
       <section className='px-10 h-[95vh] flex items-center'>
         <div>
-          <Header2 title='We manufacture' about={about} />
+          <Header2 title='We manufacture' about={about} classes={''} />
         </div>
       </section>
       <section className='h-full w-full'>
@@ -80,10 +80,11 @@ export default function DesignAndRealisation() {
       </section>
       <section className='px-10 '>
         {/* <h2 className='text-5xl mt-20 mb-40'>Design and realisation</h2> */}
-        <h2 className='py-[4rem] text-5xl'>
+        <h2 className='pt-[4rem] pb-[5rem] text-6xl'>
           <TextRevealOpacity
             justification='left'
             text='Design and realisation'
+            // classes={'uppercase'}
           />
         </h2>
         <div className='flex justify-end mb-20'>

@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <>
       {/* hero */}
-      <section className='h-[150vh] w-[100vw] relative'>
+      <section className='h-[130vh] w-[100vw] relative'>
         <Image
           width='868'
           height='798'
@@ -77,18 +77,18 @@ export default function Home() {
             <HeroTextReveal />
           </Parallax>
         </h1>
-
+        <div className='absolute top-0 left-0 bg-black'></div>
         {/* <HeroCta /> */}
       </section>
       {/* Services */}
       <section className='services w-[100vw] mt-[80px]'>
         <div className='px-10'>
-          <h2 className='text-6xl font-light mt-[4rem] mb-[200px]'>
+          {/* <h2 className='text-6xl font-light mt-[4rem] mb-[200px]'>
             <TextRevealOpacity
               justification='center'
               text='From concept to creation. . . '
             />
-          </h2>
+          </h2> */}
         </div>
         <div className='flex justify-between'>
           <div className='text-right w-full flex justify-center items-center'>
@@ -112,9 +112,7 @@ export default function Home() {
               src={xie}
               // src={portaRomana}
               alt='xie lamp'
-              classes={
-                'object-cover object-[center_center] h-full brightness-90 contrast-[1.1];'
-              }
+              classes={'object-cover object-[center_center] h-full'}
             />
           </div>
         </div>

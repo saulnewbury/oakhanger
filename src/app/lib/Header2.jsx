@@ -14,7 +14,7 @@ import Parallax from './Parallax'
 
 import { MenuContext } from '../Context'
 
-export default function Hero({ title, about }) {
+export default function Hero({ title, about, classes = '' }) {
   const intro = useRef()
   const container = useRef()
   const text = useRef()
@@ -86,12 +86,12 @@ export default function Hero({ title, about }) {
     <>
       <h1
         ref={container}
-        className='text-6xl overflow-hidden leading-[.9] mb-5'
+        className='text-6xl overflow-hidden leading-[.9] mb-5 uppercase;'
       >
         {title.split('').map((c, i) => (
           <span
             key={i}
-            className='inline-block opacity-0'
+            className={`inline-block opacity-0 ${classes}`}
             dangerouslySetInnerHTML={createHtml(c)}
           ></span>
         ))}
