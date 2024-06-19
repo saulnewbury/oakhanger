@@ -4,14 +4,11 @@ import Image from 'next/image'
 
 import Cta from './lib/Cta'
 import ButtonMain from '../app/lib/ButtonMain'
-import HeroTextReveal from './HeroTextReveal'
 import TextRevealOpacity from './lib/TextRevealOpacity'
 import ImageReveal from './lib/ImageReveal'
-import HeroCta from './HeroCta'
 
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
 import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
-import portaRomana from '@/app/lib/images/porta-romana.webp'
 
 import welding from '../../public/images/artisans/welding.jpg'
 import masonry from '../../public/images/artisans/masonry.jpg'
@@ -28,7 +25,6 @@ import bendingMetal from '@/app/lib/images/bending-metal.webp'
 
 import Parallax from './lib/Parallax'
 import { useGSAP } from '@gsap/react'
-import { gsap } from 'gsap'
 import { useRef } from 'react'
 
 const images = [
@@ -73,9 +69,9 @@ export default function Home() {
           priority={true}
         />
         <h1 className='absolute top-[55vh] translate-y-[-50%] text-white text-6xl font-light ml-10 leading-[1.3em]'>
-          <Parallax speed={0.1}>
+          {/* <Parallax speed={0.1}>
             <HeroTextReveal />
-          </Parallax>
+          </Parallax> */}
         </h1>
         <div className='absolute top-0 left-0 bg-black'></div>
         {/* <HeroCta /> */}
@@ -83,12 +79,12 @@ export default function Home() {
       {/* Services */}
       <section className='services w-[100vw] mt-[80px]'>
         <div className='px-10'>
-          {/* <h2 className='text-6xl font-light mt-[4rem] mb-[200px]'>
+          <h2 className='text-6xl font-light mt-[4rem] mb-[200px]'>
             <TextRevealOpacity
               justification='center'
               text='From concept to creation. . . '
             />
-          </h2> */}
+          </h2>
         </div>
         <div className='flex justify-between'>
           <div className='text-right w-full flex justify-center items-center'>

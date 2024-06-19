@@ -7,7 +7,6 @@ import { gsap } from 'gsap'
 export default function SmoothScroll({ children }) {
   console.log(useLenis)
   const lenis = useRef()
-  const body = document.body
 
   useEffect(() => {
     function update(time) {
