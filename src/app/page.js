@@ -44,19 +44,6 @@ const images = [
 ]
 
 export default function Home() {
-  const collaboration = useRef()
-  useGSAP(() => {
-    // gsap.to('body', {
-    //   scrollTrigger: {
-    //     trigger: collaboration.current,
-    //     start: 'top 80%',
-    //     end: 'top 20%',
-    //     scrub: true
-    //     // markers: true
-    //   },
-    //   background: '#d3d3d3'
-    // })
-  })
   return (
     <>
       {/* hero */}
@@ -115,7 +102,7 @@ export default function Home() {
         </div>
       </section>
       {/* collaborators */}
-      <section ref={collaboration}>
+      <section>
         <div className='px-10'>
           <h2 className='text-6xl font-light'>
             <TextRevealOpacity justification='left' text='Our collaborators' />

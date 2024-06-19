@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useContext } from 'react'
+import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(useGSAP)
@@ -8,8 +9,6 @@ gsap.registerPlugin(useGSAP)
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-
-import { gsap } from 'gsap'
 
 import { MenuContext } from './Context'
 
@@ -111,7 +110,10 @@ export default function Menu() {
   }
 
   return (
-    <div ref={container} className='menu h-full w-full fixed top-0 left-0 z-30'>
+    <div
+      ref={container}
+      className='menu h-[100vh] w-full fixed top-0 left-0 z-30'
+    >
       {/* Bg Panels */}
       <div
         className={`menu-bg flex flex-col h-full w-full absolute top-0 left-0 ${isOpen ? '' : 'open'}`}

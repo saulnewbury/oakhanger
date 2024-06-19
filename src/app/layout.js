@@ -23,13 +23,13 @@ export default function RootLayout({ children }) {
       {/* <ScrollTriggerConfig /> */}
       {/* <SmoothScroll> */}
       <body className={`${poppins.className} bg-white`}>
-        <ScrollSmootherGSAP>
-          <ContextProvider>
+        <ContextProvider>
+          <ScrollSmootherGSAP>
             {children}
             <Menu />
             <Topbar />
-          </ContextProvider>
-        </ScrollSmootherGSAP>
+          </ScrollSmootherGSAP>
+        </ContextProvider>
       </body>
       {/* </SmoothScroll> */}
     </html>

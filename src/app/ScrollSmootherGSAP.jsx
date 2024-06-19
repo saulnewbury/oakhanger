@@ -11,8 +11,8 @@ export default function ScrollSmootherGSAP({ children }) {
 
   useGSAP(() => {
     ScrollSmoother.create({
-      smooth: 1,
-      effects: true
+      smooth: 1
+      // effects: true
     })
   })
   return (
