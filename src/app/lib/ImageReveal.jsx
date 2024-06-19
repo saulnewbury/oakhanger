@@ -33,8 +33,7 @@ export default function ImageReveal({ children, classes, src, alt }) {
       {
         scrollTrigger: {
           trigger: '.container',
-          start: 'top 70%',
-          markers: true
+          start: 'top 70%'
         },
         scaleX: 0,
         ease: 'power2.inOut',

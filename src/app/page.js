@@ -25,8 +25,6 @@ import powerHammer from '@/app/lib/images/power-hammer.webp'
 import bendingMetal from '@/app/lib/images/bending-metal.webp'
 
 import Parallax from './lib/Parallax'
-import { useGSAP } from '@gsap/react'
-import { useRef } from 'react'
 
 const images = [
   welding,
@@ -133,5 +131,3 @@ export default function Home() {
     </>
   )
 }
-
-//  <div className={`h-full bg-black bg-[url('/images/kam-idris-_HqHX3LBN18-unsplash.jpg')] bg-cover bg-center`}></div>
