@@ -6,6 +6,7 @@ import Cta from './lib/Cta'
 import ButtonMain from '../app/lib/ButtonMain'
 import TextRevealOpacity from './lib/TextRevealOpacity'
 import ImageReveal from './lib/ImageReveal'
+import HeroTextReveal from './HeroTextReveal'
 
 import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
 import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
@@ -69,9 +70,9 @@ export default function Home() {
           priority={true}
         />
         <h1 className='absolute top-[55vh] translate-y-[-50%] text-white text-6xl font-light ml-10 leading-[1.3em]'>
-          {/* <Parallax speed={0.1}>
+          <Parallax speed={0.1}>
             <HeroTextReveal />
-          </Parallax> */}
+          </Parallax>
         </h1>
         <div className='absolute top-0 left-0 bg-black'></div>
         {/* <HeroCta /> */}
