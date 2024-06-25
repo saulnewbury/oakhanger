@@ -54,7 +54,7 @@ export default function Home() {
           alt='Living space showcasing high end furniture and lighting'
           priority={true}
         />
-        <h1 className='absolute top-[55vh] translate-y-[-50%] text-white text-6xl font-light ml-10 leading-[1.3em]'>
+        <h1 className='absolute top-[55vh] translate-y-[-50%] text-white text-7xl font-light ml-10 leading-[1.3em]'>
           <Parallax speed={0.1}>
             <HeroTextReveal />
           </Parallax>
