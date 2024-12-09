@@ -1,7 +1,7 @@
 import { Poppins } from 'next/font/google'
 import { ContextProvider } from './ContextProvider'
-import ScrollSmootherGSAP from './ScrollSmootherGSAP'
-import SmoothScroll from './lib/SmoothScroll'
+// import ScrollSmootherGSAP from './ScrollSmootherGSAP'
+// import SmoothScroll from './lib/SmoothScroll'
 import './globals.css'
 
 import Topbar from './Topbar'
@@ -25,10 +25,10 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} bg-white`}>
         <ContextProvider>
           <Topbar />
-          <ScrollSmootherGSAP>
-            {children}
-            <Menu />
-          </ScrollSmootherGSAP>
+          {/* <ScrollSmootherGSAP> */}
+          {children}
+          <Menu />
+          {/* </ScrollSmootherGSAP> */}
         </ContextProvider>
       </body>
       {/* </SmoothScroll> */}
