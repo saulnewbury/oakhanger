@@ -28,12 +28,12 @@ export default function Topbar() {
   return (
     <>
       {/* Logo */}
-
-      <Image
-        src={logo}
-        alt='letters, O and M'
-        className='logo invert cursor-pointer mix-blend-difference fixed top-8 left-10 z-[900]'
-      />
+      <Link
+        className={`link logo invert cursor-pointer mix-blend-difference fixed top-8 left-10 z-[900] ${pathname === '/' ? 'active' : ''}`}
+        href='/'
+      >
+        <Image src={logo} alt='letters, O and M' className='' />
+      </Link>
 
       {/* Nav */}
       <div className='nav flex flex-col text-xs uppercase font-normal leading-7 text-white fixed top-8 -mt-2 right-[22vw] mix-blend-difference z-[900]'>
