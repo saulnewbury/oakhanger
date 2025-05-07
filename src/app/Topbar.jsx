@@ -47,20 +47,14 @@ export default function Topbar() {
           About
         </Link>
         <Link
-          className={`link ${pathname === '#' ? 'active' : ''}`}
-          href='/aboutV2'
-        >
-          About V2
-        </Link>
-        <Link
           className={`link ${pathname === '/manufacturing' ? 'active' : ''}`}
           href='/manufacturing'
         >
           Manufacturing
         </Link>
-        <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
+        {/* <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
           Our products
-        </Link>
+        </Link> */}
         <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
           Contact
         </Link>

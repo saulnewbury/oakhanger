@@ -8,7 +8,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import CTA from '@/app/lib/Cta.jsx'
 import TextRevealOpacity from '../lib/TextRevealOpacity'
-import TextReveal from '../lib/TextReveal'
 
 import Header2 from '@/app/lib/Header2.jsx'
 
@@ -90,11 +89,12 @@ export default function DesignAndRealisation() {
         <div className='flex justify-end mb-20'>
           <div>
             <h4 className='mb-5 font-normal text-base'>
-              <TextReveal
-                // justification='left'
-                text={['We make things we believe in']}
+              <TextRevealOpacity
+                justification='left'
+                text='We make things we believe in'
               />
             </h4>
+
             <span className='max-w-[479px] inline-block'>
               From choosing materials and finishes to the design of
               manufacturing strategies, we find the solutions needed for turning
@@ -126,7 +126,12 @@ export default function DesignAndRealisation() {
         </p> */}
         <div className='flex justify-end'>
           <div>
-            <h4 className='mb-5 font-normal'>With you from beginning to end</h4>
+            <h4 className='mb-5 font-normal'>
+              <TextRevealOpacity
+                justification='left'
+                text='With you from beginning to end'
+              />
+            </h4>
             <span className='max-w-[479px] inline-block'>
               We work closely with our customers, making sure we are on the same
               page at every step. Our artisans only clear items that reflect the

@@ -15,19 +15,22 @@ export default function TextRevealOpacity({
   const container = useRef()
 
   useGSAP(() => {
-    gsap.fromTo(
-      '.chars',
-      { opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: container.current,
-          start: 'top 80%'
-        },
-        opacity: 1,
-        stagger: 0.03
-      }
-    )
-  })
+    // Use GSAP context to scope animations to this component
+    gsap.context(() => {
+      gsap.fromTo(
+        '.chars',
+        { opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: container.current,
+            start: 'top 85%'
+          },
+          opacity: 1,
+          stagger: 0.03
+        }
+      )
+    }, container) // Scope to container.current
+  }, []) // Empty dependency array to run once on mount
 
   function createHtml(char) {
     return !/\s/.test(char) ? { __html: char } : { __html: '&nbsp;' }
