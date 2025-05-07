@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 import { useContext } from 'react'
 import { usePathname } from 'next/navigation'
-import { MenuContext } from './Context'
+import { MenuContext } from '@/app/Context'
 
-import logo from '../../public/logo.svg'
+import logo from '@/lib/icons/logo.svg'
 
 import './topbar.css'
 
@@ -36,7 +36,7 @@ export default function Topbar() {
       />
 
       {/* Nav */}
-      <div className='nav flex flex-col text-xs uppercase font-normal leading-7 text-[color:hsl(0,0%,22%)] fixed top-8 -mt-2 right-[22vw] mix-blend-difference z-[900]'>
+      <div className='nav flex flex-col text-xs uppercase font-normal leading-7 text-white fixed top-8 -mt-2 right-[22vw] mix-blend-difference z-[900]'>
         <Link className={`link ${pathname === '/' ? 'active' : ''}`} href='/'>
           Home
         </Link>

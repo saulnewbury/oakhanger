@@ -10,9 +10,9 @@ import { useRef, useContext, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-import Parallax from './Parallax'
+import Parallax from '@/components/Parallax'
 
-import { MenuContext } from '../Context'
+import { MenuContext } from '@/app/Context'
 
 export default function Hero({ title, about, classes = '' }) {
   const intro = useRef()

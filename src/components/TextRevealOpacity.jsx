@@ -26,7 +26,7 @@ export default function TextRevealOpacity({
             start: 'top 85%'
           },
           opacity: 1,
-          stagger: 0.03
+          stagger: 0.015
         }
       )
     }, container) // Scope to container.current

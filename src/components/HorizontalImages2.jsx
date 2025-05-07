@@ -10,12 +10,12 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 import Image from 'next/image'
 
-import bridge from '@/app/lib/images/bridge.webp'
-import flowers from '@/app/lib/images/flowers.webp'
-import rings from '@/app/lib/images/rings.webp'
-import tableRings from '@/app/lib/images/table-rings-coated.webp'
-import lamp from '@/app/lib/images/lamp.webp'
-import planter from '@/app/lib/images/planter.webp'
+import bridge from '@/lib/images/bridge.webp'
+import flowers from '@/lib/images/flowers.webp'
+import rings from '@/lib/images/rings.webp'
+import tableRings from '@/lib/images/table-rings-coated.webp'
+import lamp from '@/lib/images/lamp.webp'
+import planter from '@/lib/images/planter.webp'
 
 const images = [
   { image: bridge, alt: '20 foot Iron bridge over garden pond' },
@@ -26,7 +26,7 @@ const images = [
   { image: planter, alt: 'planter' }
 ]
 
-import { MenuContext } from '../Context'
+import { MenuContext } from '@/app/Context'
 
 export default function HorizontalImages() {
   const container = useRef()

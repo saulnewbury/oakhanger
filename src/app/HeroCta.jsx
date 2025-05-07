@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import Parallax from './lib/Parallax'
+import Parallax from '@/components/Parallax'
 
 export default function HeroCta() {
   const called = useRef(false)

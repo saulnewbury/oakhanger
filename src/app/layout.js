@@ -20,18 +20,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      {/* <ScrollTriggerConfig /> */}
-      {/* <SmoothScroll> */}
-      <body className={`${poppins.className} bg-white`}>
+      <body className={`${poppins.className} bg-white `}>
         <ContextProvider>
           <Topbar />
-          {/* <ScrollSmootherGSAP> */}
+
           {children}
           <Menu />
-          {/* </ScrollSmootherGSAP> */}
         </ContextProvider>
       </body>
-      {/* </SmoothScroll> */}
     </html>
   )
 }

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { MenuContext } from './Context'
+import { MenuContext } from '@/app/Context'
 
 export const ContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState('false')

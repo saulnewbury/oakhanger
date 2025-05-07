@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 
 import Image from 'next/image'
-import rightArrow from '../../../public/right-arrow.svg'
+import rightArrow from '@/lib/icons/right-arrow.svg'
 
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'

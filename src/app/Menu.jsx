@@ -10,9 +10,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
-import { MenuContext } from './Context'
+import { MenuContext } from '@/app/Context'
 
-import lamp from '../../public/images/nectar-lamp.jpg'
+import lamp from '@/lib/images/nectar-lamp.jpg'
 
 let tl
 

@@ -3,7 +3,7 @@
 import { useRef, useEffect, useContext } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { MenuContext } from './Context'
+import { MenuContext } from '@/app/Context'
 
 export default function HeroTextReveal() {
   const { isOpen, ready, isReady } = useContext(MenuContext)

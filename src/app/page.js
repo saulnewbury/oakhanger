@@ -2,29 +2,31 @@
 
 import Image from 'next/image'
 
-import Cta from './lib/Cta'
-import ButtonMain from '../app/lib/ButtonMain'
-import TextRevealOpacity from './lib/TextRevealOpacity'
-import ImageReveal from './lib/ImageReveal'
-import HeroTextReveal from './HeroTextReveal'
+import Cta from '@/components/Cta'
+import ButtonMain from '@/components/ButtonMain'
+import TextRevealOpacity from '@/components/TextRevealOpacity'
+import ImageReveal from '@/components/ImageReveal'
+import HeroTextReveal from '@/components/HeroTextReveal'
 
-import kamIdris from '../../public/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
-import xie from '../../public/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
+import kamIdris from '@/lib/images/kam-idris-_HqHX3LBN18-unsplash.jpg'
+import xie from '@/lib/images/xie-yujie-nick-xe_f__fOBNs-unsplash.jpg'
+import concrete from '@/lib/images/concrete.webp'
+import lightRoom from '@/lib/images/light-room.png'
 
-import welding from '../../public/images/artisans/welding.jpg'
-import masonry from '../../public/images/artisans/masonry.jpg'
-import glass from '../../public/images/artisans/glass-blowing.jpg'
-import upholstery from '../../public/images/artisans/upholstery.jpg'
-import joinery from '../../public/images/artisans/joinery.jpg'
-import drop from '../../public/images/artisans/drop.jpg'
-import goldLeafing from '../../public/images/artisans/gold-leaf-cat.jpg'
-import design from '../../public/images/artisans/design.jpg'
-import goldLeaf1 from '@/app/lib/images/gold-leaf-1.webp'
-import goldLeaf2 from '@/app/lib/images/gold-leaf-2.webp'
-import powerHammer from '@/app/lib/images/power-hammer.webp'
-import bendingMetal from '@/app/lib/images/bending-metal.webp'
+import welding from '@/lib/images/artisans/welding.jpg'
+import masonry from '@/lib/images/artisans/masonry.jpg'
+import glass from '@/lib/images/artisans/glass-blowing.jpg'
+import upholstery from '@/lib/images/artisans/upholstery.jpg'
+import joinery from '@/lib/images/artisans/joinery.jpg'
+import drop from '@/lib/images/artisans/drop.jpg'
+import goldLeafing from '@/lib/images/artisans/gold-leaf-cat.jpg'
+import design from '@/lib/images/artisans/design.jpg'
+import goldLeaf1 from '@/lib/images/gold-leaf-1.webp'
+import goldLeaf2 from '@/lib/images/gold-leaf-2.webp'
+import powerHammer from '@/lib/images/power-hammer.webp'
+import bendingMetal from '@/lib/images/bending-metal.webp'
 
-import Parallax from './lib/Parallax'
+import Parallax from '@/components/Parallax'
 
 const images = [
   welding,
@@ -47,14 +49,14 @@ export default function Home() {
       {/* hero */}
       <section className='h-[130vh] w-[100vw] relative'>
         <Image
-          width='868'
-          height='798'
+          // width='868'
+          // height='798'
           className='object-cover object-center h-full w-full'
-          src={kamIdris}
+          src={lightRoom}
           alt='Living space showcasing high end furniture and lighting'
           priority={true}
         />
-        <h1 className='absolute top-[55vh] translate-y-[-50%] text-white text-7xl font-light ml-10 leading-[1.3em]'>
+        <h1 className='absolute top-[55vh] translate-y-[-50%] text-white text-7xl font-light ml-10 leading-[1.3em] mix-blend-difference'>
           <Parallax speed={0.1}>
             <HeroTextReveal />
           </Parallax>

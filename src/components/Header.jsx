@@ -12,9 +12,9 @@ import { useGSAP } from '@gsap/react'
 
 import Image from 'next/image'
 
-import arrow from '../../../public/down-arrow.svg'
+import arrow from '@/lib/icons/down-arrow.svg'
 
-import { MenuContext } from '../Context'
+import { MenuContext } from '@/app/Context'
 
 export default function Hero({ title }) {
   const container = useRef()

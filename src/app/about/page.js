@@ -6,15 +6,13 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-import HorizontalImages2 from '../lib/HorizontalImages2'
-import Cta from '@/app/lib/Cta.jsx'
-import Header2 from '@/app/lib/Header2.jsx'
+import HorizontalImages2 from '@/components/HorizontalImages2'
+import TextRevealOpacity from '@/components/TextRevealOpacity'
 
-import TextRevealOpacity from '../lib/TextRevealOpacity'
-import Parallax from '../lib/Parallax'
+import Cta from '@/components/Cta.jsx'
+import Header2 from '@/components/Header2.jsx'
 
-import Paul from '@/app/lib/images/paul-landscape.webp'
-import Urchin from '@/app/lib/images/urchin.webp'
+import table from '@/lib/images/table-sm-round.webp'
 
 const about = [
   'Oakhanger Metalworks is a collective of',
@@ -66,27 +64,34 @@ export default function About() {
       </section>
       <section>
         <HorizontalImages2 />
-        <h2 className='pt-[10vh] pb-[4rem] text-5xl px-10'>
+      </section>
+      <section className='px-10 pt-[5rem] pb-[6rem]'>
+        <h2 className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-balance'>
           <TextRevealOpacity
             justification='center'
             text='We make things we believe in. . .'
           />
         </h2>
-      </section>
-      <section className='px-10 pt-[8rem] pb-[6rem] flex justify-between'>
-        <div className='grow'>
-          <Image
-            width='501'
-            height='807'
-            className='basis-2/3 aspect-[26/31] h-[auto] w-[65%]'
-            src={Urchin}
-            alt='lamp whose design is inspired by a sea urchin'
-          />
-        </div>
-        <div className='flex flex-col flex-end'>
-          <div>
-            <Parallax speed={0.03} styles={'mb-10'}>
-              <h4 className='mb-5 font-normal'>Where it all began</h4>
+
+        <div className='w-full flex justify-between basis-[1/2] flex-col lg:flex-row pt-[8rem]'>
+          <div className='relative basis-1/2'>
+            <Image
+              width='501'
+              height='807'
+              className='basis-2/3 aspect-[26/31] h-[auto] w-[100%]'
+              src={table}
+              alt='lamp whose design is inspired by a sea urchin'
+            />
+          </div>
+          <div className='flex flex-col flex-end'>
+            <div className='mb-20'>
+              {/* <Parallax speed={0.02} styles={'mb-20'}> */}
+              <h4 className='mb-5 font-normal'>
+                <TextRevealOpacity
+                  justification='center'
+                  text='Where it all began'
+                />
+              </h4>
               <p className='inline-block max-w-[400px]'>
                 We started out as apprentices at Tom Harral Metalsmiths, a small
                 company with a 20 year history of forging and fabricating
@@ -96,11 +101,13 @@ export default function About() {
                 the existential problems facing artisan metalworkers in an
                 increasingly low cost consumer, environment.
               </p>
-            </Parallax>
-          </div>
-          <div>
-            <Parallax speed={0.03} styles={'mb-10'}>
-              <h4 className='mb-5 font-normal'>Purpose</h4>
+              {/* </Parallax> */}
+            </div>
+            <div className='mb-20'>
+              {/* <Parallax speed={0.04} styles={'mb-20'}> */}
+              <h4 className='mb-5 font-normal'>
+                <TextRevealOpacity justification='center' text='Purpose' />
+              </h4>
               <p className='inline-block max-w-[400px]'>
                 Our primary purpose is to preserve the way of life for artisans
                 whilst offering a service that is neither exploitative,
@@ -110,11 +117,13 @@ export default function About() {
                 the future. Products that could be passed down or sold, repaired
                 and refinished.
               </p>
-            </Parallax>
-          </div>
-          <div>
-            <Parallax speed={0.03} styles={'mb-10'}>
-              <h4 className='mb-5 font-normal'>Journey</h4>
+              {/* </Parallax> */}
+            </div>
+            <div className='mb-20'>
+              {/* <Parallax speed={0.06} styles={'mb-20'}> */}
+              <h4 className='mb-5 font-normal'>
+                <TextRevealOpacity justification='center' text='Journey' />
+              </h4>
               <p className='inline-block max-w-[400px]'>
                 We endeavor to avail ourselves of the technologies and
                 manufacturing principles that best support our mission.
@@ -124,7 +133,8 @@ export default function About() {
                 requirements they may have – to other, artisans working in
                 alternative materials and disciplines.
               </p>
-            </Parallax>
+              {/* </Parallax> */}
+            </div>
           </div>
         </div>
       </section>
