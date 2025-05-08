@@ -112,8 +112,8 @@ export default function DesignAndRealisation() {
                 <TextRevealOpacity
                   justification='left'
                   stagger={0.0005}
-                  text='From choosing materials and finishes to the design of\manufacturing strategies, we find the solutions needed for\turning your vision into a viable concept, and finally into a\physical instance. We can produce one off pieces and
-                manufacture\at scale.'
+                  text='From choosing materials and finishes to the design of*manufacturing strategies, we find the solutions needed for*turning your vision into a viable concept, and finally into a*physical instance. We can produce one off pieces and
+                manufacture*at scale.'
                 />
               </span>
             </div>
@@ -129,7 +129,7 @@ export default function DesignAndRealisation() {
                 <TextRevealOpacity
                   justification='left'
                   stagger={0.0005}
-                  text='For one-off designs we can take your concept into our own\product line, allowing us to realise your idea, at cost of\manufacturing. This is a unique proposition that makes sense to\us. It makes concept realisation more affordable and widely\accessible, thereby encouraging creativity, innovation. A\win-win.'
+                  text='For one-off designs we can take your concept into our own*product line, allowing us to realise your idea, at cost of*manufacturing. This is a unique proposition that makes sense to*us. It makes concept realisation more affordable and widely*accessible, thereby encouraging creativity, innovation. A*win-win.'
                 />
               </span>
             </div>
@@ -150,9 +150,9 @@ export default function DesignAndRealisation() {
                   justification='left'
                   stagger={0.0005}
                   text='We work closely with our customers, making sure we are on
-                the\same page at every step. Our artisans only clear items
-                that\reflect the highest quality of craftsmanship. However, you
-                are\the final arbiter for what passes as finished article.'
+                the*same page at every step. Our artisans only clear items
+                that*reflect the highest quality of craftsmanship. However, you
+                are*the final arbiter for what passes as finished article.'
                 />
 
                 {/* We are proud to say that so far, none of products we’ve

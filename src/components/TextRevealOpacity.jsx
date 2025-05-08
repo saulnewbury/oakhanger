@@ -38,7 +38,7 @@ export default function TextRevealOpacity({
   const textArray = text.split('')
 
   function createHtml(char) {
-    if (char === '\\') return { __html: `<br />` }
+    if (char === '*') return { __html: `<br />` }
     return !/\s/.test(char) ? { __html: char } : { __html: '&nbsp;' }
   }
 
