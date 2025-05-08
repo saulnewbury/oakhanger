@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function TextRevealOpacity({
   text,
   justification = 'left',
-  stagger = 0.015,
+  animSpeed = 'normal',
   classes = '',
   delay = 0
 }) {
@@ -28,7 +28,7 @@ export default function TextRevealOpacity({
             start: 'top 85%'
           },
           opacity: 1,
-          stagger,
+          stagger: animSpeed === 'fast' ? 0.001 : 0.015,
           delay
         }
       )

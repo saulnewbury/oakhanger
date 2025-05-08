@@ -14,7 +14,7 @@ export default function page() {
         <div className='flex items-center justify-between w-full'>
           <div className='mt-[6rem]'>
             <span className='font-semi-bold'>
-              <TextRevealOpacity text='Oakhanger Metalworks\Unit 6\Hartley Wood Farm\Hampshire\Oakhanger\GU37 9JW' />
+              <TextRevealOpacity text='Oakhanger Metalworks*Unit 6*Hartley Wood Farm*Hampshire*Oakhanger*GU37 9JW' />
             </span>
           </div>
           <div className='self-end'>

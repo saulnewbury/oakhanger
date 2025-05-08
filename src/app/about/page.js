@@ -88,7 +88,7 @@ export default function About() {
               <p className='inline-block max-w-[400px]'>
                 <TextRevealOpacity
                   justification='left'
-                  stagger={0.0005}
+                  animSpeed='fast'
                   text='We started out as apprentices at Tom Harral Metalsmiths, a small*company with a 20 year history of forging and fabricating*thousands of lamps and tables, for industry leader, Porta*Romana. Thanks to Tom Harral we were able to set up Oakhanger*Metalworks in 2019, as a way of exploring how we might address*the existential problems facing artisan metalworkers in an*increasingly low cost consumer, environment.'
                 />
               </p>
@@ -102,7 +102,7 @@ export default function About() {
               <p className='inline-block max-w-[400px]'>
                 <TextRevealOpacity
                   justification='left'
-                  stagger={0.0005}
+                  animSpeed='fast'
                   text='Our primary purpose is to preserve the way of life for artisans*whilst offering a service that is neither exploitative,*exclusive, nor consumptive. We aim to make products that are*affordable to many and that endure for long enough to allow*others to benefit. To this end we make the common antiquities of*the future. Products that could be passed down or sold, repaired*and refinished.*
 '
                 />
@@ -117,7 +117,7 @@ export default function About() {
               <p className='inline-block max-w-[400px]'>
                 <TextRevealOpacity
                   justification='left'
-                  stagger={0.0005}
+                  animSpeed='fast'
                   text='We endeavor to avail ourselves of the technologies and*manufacturing principles that best support our mission.*Currently these include three dimensional design, CG rendering*and CNC programming. These tools alow us to help you visualise*and communicate your ideas, beyond whatever artisanal*requirements they may have, to other, artisans working in*alternative materials and disciplines.'
                 />
               </p>
