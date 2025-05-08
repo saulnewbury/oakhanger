@@ -13,6 +13,7 @@ import Cta from '@/components/Cta.jsx'
 import Header2 from '@/components/Header2.jsx'
 
 import table from '@/lib/images/table-sm-round.webp'
+import lamp from '@/lib/images/lamp-on-table.webp'
 
 const about = [
   'Oakhanger Metalworks is a collective of',
@@ -79,7 +80,7 @@ export default function About() {
               width='501'
               height='807'
               className='basis-2/3 aspect-[26/31] h-[auto] w-[100%]'
-              src={table}
+              src={lamp}
               alt='lamp whose design is inspired by a sea urchin'
             />
           </div>
@@ -142,39 +143,3 @@ export default function About() {
     </>
   )
 }
-
-// {/* <div className='flex justify-end mb-20'>
-//             <div>
-//               <h4 className='mb-5 font-normal'>
-//                 With you from beginning to end
-//               </h4>
-//               <p className='inline-block max-w-[400px]'>
-//                 Our primary purpose was to preserve, the way of life of artisans
-//                 whilst offering, a service that was neither exploitative,
-//                 exclusive, nor consumptive. This meant, our services had to make
-//                 products that, would be affordable to many and, endure for long
-//                 enough to allow others, to benefit. In short we needed to make,
-//                 the common antiquities of the future. Products that could be
-//                 passed down or, sold, repaired and refinished.
-//               </p>
-//             </div>
-//           </div>
-//           <div className='flex justify-end'>
-//             <div>
-//               <h4 className='mb-5 font-normal'>Our development</h4>
-//               <p className='inline-block max-w-[400px]'>
-//                 To achieve these aims we had to, acquire additional skills and
-//                 knowledge, to communicate ideas and take, advantage of modern
-//                 manufacturing, principles, so with time we became as, adept at
-//                 three dimensional design, CG, rendering and CNC programming as,
-//                 we are at traditional metalworking, practices like forging and
-//                 fabrication, We found that by combining these old, and new
-//                 disciplines that were able to, both increase and diversify our.,
-//                 capabilities. More importantly, we were, able to help our
-//                 customers visualise, and communicate the entirety of their,
-//                 ideas; beyond whatever metalwork, requirements they may have, to
-//                 other, artisans working in alternative materials, and
-//                 disciplines.
-//               </p>
-//             </div>
-//           </div> */}

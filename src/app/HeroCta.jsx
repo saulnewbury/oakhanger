@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 import { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -27,7 +29,9 @@ export default function HeroCta() {
       ref={button}
       className='absolute top-[65vh] right-[25%] translate-x-[50%] translate-y-[-50%] h-[20rem] w-[20rem] border-solid border-white rounded-full border-[2px] flex justify-center items-center text-4xl text-white'
     >
-      <span>Get in touch</span>
+      <Link href='/contact'>
+        <span>Get in touch</span>
+      </Link>
     </div>
   )
 }

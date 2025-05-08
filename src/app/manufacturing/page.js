@@ -77,7 +77,11 @@ export default function DesignAndRealisation() {
           className='object-cover object-[center_center] h-full w-full opacity-0'
           preload='auto'
         >
-          <source src='/urchin-chandelier.mp4' type='video/mp4' />
+          <source
+            src='/urchin-chandelier.mp4'
+            // src={film}
+            type='video/mp4'
+          />
           Your browser does not support the video tag.
         </video>
         <div

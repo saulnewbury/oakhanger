@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import ButtonMain from './ButtonMain'
 
 export default function Cta() {
@@ -9,7 +10,9 @@ export default function Cta() {
         Have an idea you&apos;d like to discuss?
       </h3>
       <div className='flex justify-center'>
-        <ButtonMain text='Get in touch' />
+        <Link href='/contact'>
+          <ButtonMain text='Get in touch' />
+        </Link>
       </div>
     </section>
   )

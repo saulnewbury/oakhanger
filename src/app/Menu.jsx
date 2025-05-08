@@ -151,16 +151,10 @@ export default function Menu() {
             <span className='inline-block'>Manufacturing</span>
           </Link>
 
-          {/* <Link
-            className={`link ${pathname === '#' ? 'active' : ''} overflow-hidden leading-[.8] mb-[.5em]`}
-            href='#'
-          >
-            <span className='inline-block'>Our products</span>
-          </Link> */}
-
           <Link
-            className={`link ${pathname === '#' ? 'active' : ''} overflow-hidden leading-[.8]`}
-            href='#'
+            className={`link ${pathname === '/' ? 'active' : ''} overflow-hidden leading-[.8]`}
+            href='/contact'
+            onClick={handleClick}
           >
             <span className='inline-block'>Contact</span>
           </Link>

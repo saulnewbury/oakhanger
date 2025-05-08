@@ -55,7 +55,10 @@ export default function Topbar() {
         {/* <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
           Our products
         </Link> */}
-        <Link className={`link ${pathname === '#' ? 'active' : ''}`} href='#'>
+        <Link
+          className={`link ${pathname === '/contact' ? 'active' : ''}`}
+          href='/contact'
+        >
           Contact
         </Link>
       </div>

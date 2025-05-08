@@ -9,8 +9,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function TextRevealOpacity({
   text,
-  justification,
-  classes = ''
+  justification = 'left',
+  classes = '',
+  delay = 0
 }) {
   const container = useRef()
 
@@ -26,23 +27,27 @@ export default function TextRevealOpacity({
             start: 'top 85%'
           },
           opacity: 1,
-          stagger: 0.015
+          stagger: 0.015,
+          delay
         }
       )
     }, container) // Scope to container.current
   }, []) // Empty dependency array to run once on mount
 
+  const textArray = text.split('')
+
   function createHtml(char) {
+    if (char === '\\') return { __html: `<br />` }
     return !/\s/.test(char) ? { __html: char } : { __html: '&nbsp;' }
   }
 
   return (
     <span ref={container} className={`text-${justification}`}>
-      {text.split('').map((char, i) => (
+      {textArray.map((char, i) => (
         <span
           className={`chars opacity-0 ${classes}`}
-          key={i}
           dangerouslySetInnerHTML={createHtml(char)}
+          key={i}
         ></span>
       ))}
     </span>
